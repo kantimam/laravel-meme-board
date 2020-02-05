@@ -1,5 +1,5 @@
-<nav>
-    <ul>
+<nav class="centerAll">
+    <ul class="centerAll">
         <li>ICON</li>
         <li>NEW</li>
         <li>POPULAR</li>

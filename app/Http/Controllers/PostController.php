@@ -16,7 +16,12 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('index', ['data'=> "hello world"]);
+        return view(
+            'index', 
+            ['data'=> "hello world", 
+            'posts'=>["hello", "world", "my", "potatoes"]
+            ]
+        );
     }
 
     /**
@@ -38,7 +43,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        if(request()->has('image')){
+            $name=request()->image->store('uploads', 'public');
+            return $name;
+        }
+        return "no image";
+
     }
+
+
+/*     private function validateStore(){
+        $validateData=request()->validate([
+
+        ])
+    } */
 
     /**
      * Display the specified resource.
