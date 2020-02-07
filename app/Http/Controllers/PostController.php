@@ -32,6 +32,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('upload');
     }
 
     /**
@@ -42,12 +43,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
         if(request()->has('image')){
             $name=request()->image->store('uploads', 'public');
-            return $name;
+            $title=request()->title;
+            return view('uploadSucces');
         }
-        return "no image";
+        return "image is required";
 
     }
 

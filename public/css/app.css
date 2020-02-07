@@ -27,12 +27,32 @@ a {
           align-items: center;
 }
 
+.flexCenterAllVert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .centerText {
   text-align: center;
 }
 
 .margin0Auto {
   margin: 0 auto;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .inner {
@@ -62,5 +82,61 @@ nav {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+#uploadForm {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1rem 0;
+}
+
+#uploadForm #file {
+  display: none;
+}
+
+#uploadForm label {
+  border-radius: 1rem;
+  min-height: 16rem;
+  width: 60rem;
+  max-width: 94%;
+  background-color: greenyellow;
+}
+
+#uploadForm label h3 {
+  display: none;
+}
+
+#uploadForm label.dragOver {
+  background-color: #9090d1;
+}
+
+#uploadForm label.dragOver strong {
+  display: none;
+}
+
+#uploadForm label.dragOver span {
+  display: none;
+}
+
+#uploadForm label.dragOver h3 {
+  display: block;
+}
+
+#uploadForm #uploadPreview {
+  display: none;
+  width: 60rem;
+  max-width: 94%;
+}
+
+#uploadForm #uploadPreview img {
+  width: 100%;
+}
+
+#uploadForm.showUploadPreview #uploadPreview {
+  display: block !important;
+}
+
+#uploadForm.showUploadPreview label {
+  display: none !important;
 }
 /*# sourceMappingURL=app.css.map */

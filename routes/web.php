@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PostController@index');
+Route::get('/upload', 'PostController@create');
 
 Route::post('/post', 'PostController@store');
 
