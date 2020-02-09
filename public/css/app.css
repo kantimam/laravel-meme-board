@@ -94,49 +94,80 @@ nav {
   display: none;
 }
 
-#uploadForm label {
+#uploadForm #dropZoneWrapper {
   border-radius: 1rem;
   min-height: 16rem;
-  width: 60rem;
+  width: 40rem;
   max-width: 94%;
+  overflow: hidden;
+  position: relative;
   background-color: greenyellow;
 }
 
-#uploadForm label h3 {
+#uploadForm #dropZoneWrapper h3 {
   display: none;
 }
 
-#uploadForm label.dragOver {
+#uploadForm #dropZoneWrapper img {
+  display: block;
+  width: 14rem;
+  max-width: 80%;
+}
+
+#uploadForm #dropZoneWrapper.dragOver {
   background-color: #9090d1;
 }
 
-#uploadForm label.dragOver strong {
+#uploadForm #dropZoneWrapper.dragOver strong, #uploadForm #dropZoneWrapper.dragOver span {
   display: none;
 }
 
-#uploadForm label.dragOver span {
+#uploadForm #dropZoneWrapper.dragOver span {
   display: none;
 }
 
-#uploadForm label.dragOver h3 {
+#uploadForm #dropZoneWrapper.dragOver h3 {
   display: block;
+}
+
+#uploadForm #dropZone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #uploadForm #uploadPreview {
   display: none;
   width: 60rem;
   max-width: 94%;
+  position: relative;
 }
 
 #uploadForm #uploadPreview img {
   width: 100%;
 }
 
+#uploadForm #uploadPreview .closeIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
 #uploadForm.showUploadPreview #uploadPreview {
   display: block !important;
 }
 
-#uploadForm.showUploadPreview label {
+#uploadForm.showUploadPreview #dropZoneWrapper {
   display: none !important;
+}
+
+.closeIcon {
+  border-radius: 10rem;
+  background-color: white;
+  height: 3rem;
+  width: 3rem;
+  font-weight: bold;
 }
 /*# sourceMappingURL=app.css.map */
