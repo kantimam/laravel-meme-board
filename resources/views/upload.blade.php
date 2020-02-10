@@ -2,37 +2,42 @@
 
 
 @section('content')
-    <div class="">
-        <div class="inner test">
-            <form id="uploadForm" action="/post" method="POST" enctype="multipart/form-data" class="flexCenterAllVert">
-                <input accept="image/" type="file" name="image" id="file">
+    <main class="centerAll flexContent">
+        <form id="uploadForm" action="/post" method="POST" enctype="multipart/form-data" class="flexCenterAllVert fancyShadow">
+            <input accept="image/" type="file" name="image" id="file">
+            
+        <div id="dropZoneWrapper"  class="centerAll mainColor fullSizeBg" style="background-image: url({{asset("image/upload_illustration.svg")}})">
+                <div id="uploadInfo">
+                    {{-- <img class="margin0Auto" src="{{asset('icon/square-upload.svg')}}" alt="upload"/> --}}
+                    <strong class="pointer">Choose a file&nbsp</strong>
+                    <span>or drag and dropt it here!</span>
+                    <h3>DROP YOUR FILE! :)</h3>
+                </div>
                 
-                <div id="dropZoneWrapper"  class="centerAll">
-                    <div id="uploadInfo">
-                        <img class="margin0Auto" src="{{asset('/icons/square-upload.svg')}}" alt="upload"/>
-                        <strong class="pointer">Choose a file &nbsp</strong>
-                        <span>or drag and dropt it here</span>
-                        <h3>DROP YOUR FILE! :)</h3>
-                    </div>
+
+                <label for="file" id="dropZone">
                     
+                </label>
+            </div>
 
-                    <label for="file" id="dropZone">
-                        
-                    </label>
-                </div>
+            
+            <div id="uploadPreview">
+                <div id="uploadPreviewClose" class="closeIcon centerAll pointer">X</div>
+                <img id="uploadPreviewImage" src="" alt="image preview">
+            </div>
 
-                
-                <div id="uploadPreview">
-                    <div id="uploadPreviewClose" class="closeIcon centerAll pointer">X</div>
-                    <img id="uploadPreviewImage" src="" alt="image preview">
-                </div>
+            <div class="textInputWrapper">
+                <label for="uploadTitle">ADD A TITLE</label>
+                <input id="uploadTitle" placeholder="give your post a title" class="textInput" type="text" name="title">
+                <input placeholder="add a few tags seperated by ," class="textInput" type="text" name="tags">
+            </div>
 
-                <input class="textInput" type="text" name="title">
-                <input class="mainSubmit" type="submit">
-                @csrf
-            </form>
-        </div>
-    </div>
+            <input class="mainSubmit fancyShadow mainColor" type="submit">
+            
+            @csrf
+        </form>
+    </main>
+
     <script>
         const input=document.querySelector("#file");
         const dropZone=document.querySelector("#dropZone");
@@ -75,6 +80,9 @@
             showPreview(input)
 
         }
+        
+        input.addEventListener('change',()=>showPreview(input));
+
         function showPreview(input){
             if(input.files && input.files[0]){
                 const reader=new FileReader();

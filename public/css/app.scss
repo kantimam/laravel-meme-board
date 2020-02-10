@@ -1,15 +1,28 @@
-$mainColor: rgb(118, 207, 118);
+$mainColor: greenyellow;
+$bgColor: rgb(235, 235, 235);
 $innerWidth: 72rem;
 $maxWidth: 94%;
+$mainFontSize: 1.2rem;
 
 $testColor: lightblue;
 .test{
     background-color: $testColor;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 html, body{
     margin: 0;
     padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+main{
+    background-color: $bgColor;
 }
 
 li{
@@ -48,7 +61,19 @@ a{
 nav{
     background-color: $mainColor;
 }
+.flexContent{
+    flex: 1;
+    overflow: auto;
+}
+.fullSizeBg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
+.mainColor{
+    background-color: $mainColor;
+}
 
 .thumbnailGrid{
     display: grid;
@@ -66,26 +91,31 @@ nav{
 
 
 #uploadForm{
-    box-sizing: border-box;
-    padding: 1rem 0;
+    font-size: $mainFontSize;
+    margin-top: -4rem;
+    background-color: $bgColor;
+    border-radius: 1rem;
+    width: 32rem;
+    max-width: $maxWidth;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    padding-bottom: 1.6rem;
     #file{
         display: none;
     }
     #dropZoneWrapper{
-        border-radius: 1rem;
-        min-height: 16rem;
-        width: 40rem;
-        max-width: $maxWidth;
+        min-height: 18rem;
+        width: 100%;
         overflow: hidden;
         position: relative;
-        background-color: greenyellow;
         h3{
             display: none;
         }
         img{
             display: block;
-            width: 14rem;
+            width: 8rem;
             max-width: 80%;
+            margin-bottom: 2rem;
         }
         &.dragOver{
             background-color: rgb(144, 144, 209);
@@ -100,6 +130,7 @@ nav{
                 display: block;
             }
         }
+
     }
     
     #dropZone{
@@ -113,8 +144,6 @@ nav{
 
     #uploadPreview{
         display: none;
-        width: 60rem;
-        max-width: $maxWidth;
         position: relative;
         img{
             width: 100%;
@@ -134,20 +163,52 @@ nav{
             display: none !important;
         }
     }
-}
-
-.textInput{
-
-}
-
-.mainSubmit{
+    .textInput{
+        display: block;
+        width: 98%;
+        margin: 0.4rem auto 1.2rem auto;
+    }
+    .mainSubmit{
+        padding: 0.4rem 3rem;
+    }
     
 }
+
+#uploadInfo{
+    border-radius: 5rem;
+    padding: 1rem;
+    font-size: 1.4rem;
+    background-color: rgba(220,220,220, 0.4);
+}
+
+.textInputWrapper{
+    width: 100%;
+    padding: 0.8rem 0.6rem;
+    label{
+        font-weight: bold;
+        display: block;
+        text-align: center;
+    }
+}
+
+.textInput, .mainSubmit{
+    font-size: $mainFontSize;
+    padding: 0.1rem 0.6rem;
+    border-radius: 0.4rem;
+    border: none;
+}
+
 
 .closeIcon{
     border-radius: 10rem;
     background-color: white;
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
     font-weight: bold;
 }
+
+.fancyShadow{
+    border-radius: 0.6rem;
+    box-shadow: 0.4rem 0.2rem 0.5rem rgba(220,220,220, 1), -0.4rem -0.2rem 0.8rem rgba(255,255,255,1), 1rem 1rem 1rem rgba(255,255,255,0.25) inset;
+  }
+  

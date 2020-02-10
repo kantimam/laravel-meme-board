@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id')->unique();
             $table->integer('user_id')->default('0');
             $table->string('title')->nullable();
-            $table->string('resourceurl');
+            $table->string('file');
             $table->string('thumbnail');
             $table->integer('rating')->default('0');
             $table->integer('score')->default('0');

@@ -12,11 +12,13 @@
             <h3>{{$data}}</h3>
 
             <div class="thumbnailGrid">
-                @foreach ($posts as $post)
-                <a href="https://i.imgur.com/DqTyMHI.jpeg">
-                    <img src="https://i.imgur.com/vQc8wQx.jpg" alt="thumbnail">
-                </a>    
-                @endforeach
+                @forelse ($posts as $post)
+                    <a href={{"storage/".$post->thumbnail}}>
+                        <img src={{"storage/".$post->thumbnail}} alt="thumbnail">
+                    </a>
+                @empty
+                    <h3 class="centerText">NOTHING FOUND</h3>    
+                @endforelse
             </div>
         </div>
     </div>  

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
-
+use App\Post;
 
 class PostController extends Controller
 {
@@ -16,10 +16,11 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts=Post::orderBy('created_at', 'DESC')->get();
         return view(
             'index', 
             ['data'=> "hello world", 
-            'posts'=>["hello", "world", "my", "potatoes"]
+            'posts'=>$posts
             ]
         );
     }
@@ -44,9 +45,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         if(request()->has('image')){
+            $post=new Post;
             $name=request()->image->store('uploads', 'public');
-            $title=request()->title;
-            return view('uploadSucces');
+            if($name){
+                $post->file=$name;
+                $post->thumbnail=$name;
+                if(request()->has('title')){
+                    $post->title=request()->title;
+                }
+                $post->save();
+                return view('uploadSucces');
+            }
         }
         return "image is required";
 

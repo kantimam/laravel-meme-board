@@ -2,9 +2,27 @@
   background-color: lightblue;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+main {
+  background-color: #ebebeb;
 }
 
 li {
@@ -62,7 +80,24 @@ a {
 }
 
 nav {
-  background-color: #76cf76;
+  background-color: greenyellow;
+}
+
+.flexContent {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: auto;
+}
+
+.fullSizeBg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainColor {
+  background-color: greenyellow;
 }
 
 .thumbnailGrid {
@@ -85,9 +120,15 @@ nav {
 }
 
 #uploadForm {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 1rem 0;
+  font-size: 1.2rem;
+  margin-top: -4rem;
+  background-color: #ebebeb;
+  border-radius: 1rem;
+  width: 32rem;
+  max-width: 94%;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  padding-bottom: 1.6rem;
 }
 
 #uploadForm #file {
@@ -95,13 +136,10 @@ nav {
 }
 
 #uploadForm #dropZoneWrapper {
-  border-radius: 1rem;
-  min-height: 16rem;
-  width: 40rem;
-  max-width: 94%;
+  min-height: 18rem;
+  width: 100%;
   overflow: hidden;
   position: relative;
-  background-color: greenyellow;
 }
 
 #uploadForm #dropZoneWrapper h3 {
@@ -110,8 +148,9 @@ nav {
 
 #uploadForm #dropZoneWrapper img {
   display: block;
-  width: 14rem;
+  width: 8rem;
   max-width: 80%;
+  margin-bottom: 2rem;
 }
 
 #uploadForm #dropZoneWrapper.dragOver {
@@ -140,8 +179,6 @@ nav {
 
 #uploadForm #uploadPreview {
   display: none;
-  width: 60rem;
-  max-width: 94%;
   position: relative;
 }
 
@@ -163,11 +200,52 @@ nav {
   display: none !important;
 }
 
+#uploadForm .textInput {
+  display: block;
+  width: 98%;
+  margin: 0.4rem auto 1.2rem auto;
+}
+
+#uploadForm .mainSubmit {
+  padding: 0.4rem 3rem;
+}
+
+#uploadInfo {
+  border-radius: 5rem;
+  padding: 1rem;
+  font-size: 1.4rem;
+  background-color: rgba(220, 220, 220, 0.4);
+}
+
+.textInputWrapper {
+  width: 100%;
+  padding: 0.8rem 0.6rem;
+}
+
+.textInputWrapper label {
+  font-weight: bold;
+  display: block;
+  text-align: center;
+}
+
+.textInput, .mainSubmit {
+  font-size: 1.2rem;
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.4rem;
+  border: none;
+}
+
 .closeIcon {
   border-radius: 10rem;
   background-color: white;
-  height: 3rem;
-  width: 3rem;
+  height: 2rem;
+  width: 2rem;
   font-weight: bold;
+}
+
+.fancyShadow {
+  border-radius: 0.6rem;
+  -webkit-box-shadow: 0.4rem 0.2rem 0.5rem gainsboro, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+          box-shadow: 0.4rem 0.2rem 0.5rem gainsboro, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
 }
 /*# sourceMappingURL=app.css.map */
