@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
+use Intervention\Image\Facades\Image;
 use App\Post;
 
 class PostController extends Controller
@@ -47,14 +48,19 @@ class PostController extends Controller
         if(request()->has('image')){
             $post=new Post;
             $name=request()->image->store('uploads', 'public');
-            if($name){
-                $post->file=$name;
-                $post->thumbnail=$name;
-                if(request()->has('title')){
-                    $post->title=request()->title;
+            if($name){ 
+                $thumbnailPath='storage/thumbnails/thumbnail_'.request()->image->hashName();
+                $thumbnail=Image::make(request()->image)->fit(320,240)->encode('jpg')->save($thumbnailPath);
+                if($thumbnail){
+                    $post->file='storage/'.$name;
+                    $post->thumbnail=$thumbnailPath;
+                    if(request()->has('title')){
+                        $post->title=request()->title;
+                    }
+                    $post->save();
+                    return view('uploadSucces');
                 }
-                $post->save();
-                return view('uploadSucces');
+                
             }
         }
         return "image is required";

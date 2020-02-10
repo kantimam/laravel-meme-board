@@ -73,14 +73,15 @@ a {
   cursor: pointer;
 }
 
-.inner {
-  margin: 0 auto;
-  width: 72rem;
-  max-width: 94%;
+ul {
+  margin: 0;
+  padding: 0;
 }
 
-nav {
-  background-color: greenyellow;
+.inner {
+  margin: 0 auto;
+  width: 82rem;
+  max-width: 94%;
 }
 
 .flexContent {
@@ -98,6 +99,37 @@ nav {
 
 .mainColor {
   background-color: greenyellow;
+}
+
+nav {
+  background-color: greenyellow;
+}
+
+nav .inner {
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav ul {
+  width: 24rem;
+  max-width: 100%;
+  -webkit-box-pack: justify !important;
+      -ms-flex-pack: justify !important;
+          justify-content: space-between !important;
+}
+
+#createPostButton {
+  border-radius: 0.4rem;
+  background-color: white;
+  padding: 0.4rem 1rem;
 }
 
 .thumbnailGrid {

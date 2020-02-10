@@ -13,8 +13,8 @@
 
             <div class="thumbnailGrid">
                 @forelse ($posts as $post)
-                    <a href={{"storage/".$post->thumbnail}}>
-                        <img src={{"storage/".$post->thumbnail}} alt="thumbnail">
+                    <a href={{$post->file}}>
+                        <img src={{$post->thumbnail}} alt="thumbnail">
                     </a>
                 @empty
                     <h3 class="centerText">NOTHING FOUND</h3>    

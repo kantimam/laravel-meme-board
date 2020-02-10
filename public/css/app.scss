@@ -1,6 +1,6 @@
 $mainColor: greenyellow;
 $bgColor: rgb(235, 235, 235);
-$innerWidth: 72rem;
+$innerWidth: 82rem;
 $maxWidth: 94%;
 $mainFontSize: 1.2rem;
 
@@ -53,14 +53,16 @@ a{
 .pointer{
     cursor: pointer;
 }
+ul{
+    margin: 0;
+    padding: 0;
+}
 .inner{
     margin: 0 auto;
     width: $innerWidth;
     max-width: $maxWidth;
 }
-nav{
-    background-color: $mainColor;
-}
+
 .flexContent{
     flex: 1;
     overflow: auto;
@@ -74,6 +76,30 @@ nav{
 .mainColor{
     background-color: $mainColor;
 }
+
+
+nav{
+    background-color: $mainColor;
+    .inner{
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    ul{
+        width: 24rem;
+        max-width: 100%;
+        justify-content: space-between !important;
+    }
+    
+}
+
+#createPostButton{
+    border-radius: 0.4rem;
+    background-color: white;
+    padding: 0.4rem 1rem;
+}
+
 
 .thumbnailGrid{
     display: grid;
