@@ -25,17 +25,14 @@
                 </li>
             @endif
         @else
-            <li class="nav-item dropdown">
+            <li id="profileLogOutWrapper">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('profile')}}">
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     <input type="submit" value="LOGOUT">
                     @csrf
                 </form>
-
-                    
             </li>
         @endguest
             

@@ -11,7 +11,11 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'PostController@index');
+Route::get('/home', 'PostController@index');
+Route::get('/profile', 'PostController@index')->name('profile');
 Route::get('/upload', 'PostController@create');
 Route::get('/post/{id}', 'PostController@show');
 
@@ -22,6 +26,4 @@ Route::get('/test', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

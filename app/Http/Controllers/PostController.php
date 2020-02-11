@@ -9,6 +9,16 @@ use App\Post;
 
 class PostController extends Controller
 {
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +29,7 @@ class PostController extends Controller
         //
         $posts=Post::orderBy('created_at', 'DESC')->get();
         return view(
-            'index', 
+            'home', 
             [
             'posts'=>$posts
             ]
