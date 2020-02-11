@@ -11,6 +11,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+}
+
+body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,6 +29,11 @@ main {
       -ms-flex: 1;
           flex: 1;
   background-color: #ebebeb;
+  overflow: auto;
+}
+
+.fullHeight {
+  min-height: 100%;
 }
 
 li {
@@ -104,6 +112,7 @@ ul {
   background-color: greenyellow;
 }
 
+/* nav */
 nav {
   background-color: greenyellow;
 }
@@ -135,6 +144,17 @@ nav ul {
   padding: 0.4rem 1rem;
 }
 
+#userNav {
+  width: 12rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* end nav */
 /* index */
 #infoContainer {
   min-height: 0.2rem;
@@ -171,13 +191,26 @@ nav ul {
 }
 
 #postOptions {
-  min-width: 3rem;
-  background-color: lightcoral;
+  padding-top: 4rem;
+  padding-right: 1rem;
 }
 
 #postComments {
   min-width: 26rem;
   background-color: lightpink;
+}
+
+.ratePostWrapper {
+  text-align: center;
+  padding: 0.1rem 1rem;
+  border-radius: 0.2rem;
+  border: 0.04rem solid black;
+}
+
+.ratePostWrapper p {
+  margin: 0.6rem 0.1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 #postWrapper {

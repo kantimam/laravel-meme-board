@@ -1,9 +1,8 @@
 
-@extends('layouts.mainLayout')
+@extends('layouts.app')
 
 
 @section('content')
-    <main>
         <div class="inner">
             <div id="infoContainer">
             </div>
@@ -17,5 +16,4 @@
                 @endforelse
             </div>
         </div>
-    </main>
 @endsection

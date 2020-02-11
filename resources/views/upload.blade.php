@@ -1,8 +1,8 @@
-@extends('layouts.mainLayout')
+@extends('layouts.app')
 
 
 @section('content')
-    <main class="centerAll flexContent">
+    <div class="centerAll flexContent fullHeight">
         <form id="uploadForm" action="/post" method="POST" enctype="multipart/form-data" class="flexCenterAllVert fancyShadow">
             <input accept="image/" type="file" name="image" id="file">
             
@@ -36,7 +36,7 @@
             
             @csrf
         </form>
-    </main>
+    </div>
 
     <script>
         const input=document.querySelector("#file");

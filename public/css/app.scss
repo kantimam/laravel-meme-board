@@ -16,7 +16,9 @@ $testColor: lightblue;
 html, body{
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100%;  
+}
+body{
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -24,6 +26,10 @@ html, body{
 main{
     flex: 1;
     background-color: $bgColor;
+    overflow: auto;
+}
+.fullHeight{
+    min-height: 100%;
 }
 
 li{
@@ -78,6 +84,7 @@ ul{
     background-color: $mainColor;
 }
 
+/* nav */
 
 nav{
     background-color: $mainColor;
@@ -100,6 +107,14 @@ nav{
     background-color: white;
     padding: 0.4rem 1rem;
 }
+
+#userNav{
+    width: 12rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* end nav */
 
 
 /* index */
@@ -134,12 +149,24 @@ nav{
     display: flex;
 }
 #postOptions{
-    min-width: 3rem;
-    background-color: lightcoral;
+    padding-top: 4rem;
+    padding-right: 1rem;
 }
 #postComments{
     min-width: 26rem;
     background-color: lightpink;
+}
+
+.ratePostWrapper{
+    text-align: center;
+    padding: 0.1rem 1rem;
+    border-radius: 0.2rem;
+    border: 0.04rem solid black;
+    p{
+        margin: 0.6rem 0.1rem;
+        font-size: $mainFontSize;
+        font-weight: bold;
+    }
 }
 
 #postWrapper{
