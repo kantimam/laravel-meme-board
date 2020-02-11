@@ -22,6 +22,9 @@ html, body {
 }
 
 main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background-color: #ebebeb;
 }
 
@@ -80,7 +83,7 @@ ul {
 
 .inner {
   margin: 0 auto;
-  width: 82rem;
+  width: 76rem;
   max-width: 94%;
 }
 
@@ -132,6 +135,11 @@ nav ul {
   padding: 0.4rem 1rem;
 }
 
+/* index */
+#infoContainer {
+  min-height: 0.2rem;
+}
+
 .thumbnailGrid {
   display: -ms-grid;
   display: grid;
@@ -151,6 +159,40 @@ nav ul {
      object-fit: cover;
 }
 
+/* end index */
+/* display post screen */
+#postLayout {
+  width: 100%;
+  /* display: grid;
+    grid-template-columns: repeat(10, 1fr); */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#postOptions {
+  min-width: 3rem;
+  background-color: lightcoral;
+}
+
+#postComments {
+  min-width: 26rem;
+  background-color: lightpink;
+}
+
+#postWrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  /* grid-column: 1/8; */
+  min-height: 16rem;
+}
+
+#postWrapper img {
+  width: 100%;
+}
+
+/* end display post screen */
 #uploadForm {
   font-size: 1.2rem;
   margin-top: -4rem;

@@ -13,6 +13,7 @@
 
 Route::get('/', 'PostController@index');
 Route::get('/upload', 'PostController@create');
+Route::get('/post/{id}', 'PostController@show');
 
 Route::post('/post', 'PostController@store');
 

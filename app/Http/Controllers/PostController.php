@@ -20,7 +20,7 @@ class PostController extends Controller
         $posts=Post::orderBy('created_at', 'DESC')->get();
         return view(
             'index', 
-            ['data'=> "hello world", 
+            [
             'posts'=>$posts
             ]
         );
@@ -82,7 +82,12 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+            $post=Post::findOrFail($id);
+            return view('post',['post'=>$post]);
+        }catch(Exeption $e){
+            return redirect('/');
+        }
     }
 
     /**

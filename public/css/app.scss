@@ -1,6 +1,6 @@
 $mainColor: greenyellow;
 $bgColor: rgb(235, 235, 235);
-$innerWidth: 82rem;
+$innerWidth: 76rem;
 $maxWidth: 94%;
 $mainFontSize: 1.2rem;
 
@@ -22,6 +22,7 @@ html, body{
     overflow: hidden;
 }
 main{
+    flex: 1;
     background-color: $bgColor;
 }
 
@@ -101,6 +102,12 @@ nav{
 }
 
 
+/* index */
+
+#infoContainer{
+    min-height: 0.2rem;
+}
+
 .thumbnailGrid{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
@@ -115,6 +122,37 @@ nav{
     }
 }
 
+/* end index */
+
+
+/* display post screen */
+
+#postLayout{
+    width: 100%;
+    /* display: grid;
+    grid-template-columns: repeat(10, 1fr); */
+    display: flex;
+}
+#postOptions{
+    min-width: 3rem;
+    background-color: lightcoral;
+}
+#postComments{
+    min-width: 26rem;
+    background-color: lightpink;
+}
+
+#postWrapper{
+    flex: 1;
+    /* grid-column: 1/8; */
+    min-height: 16rem;
+    img{
+        width: 100%;
+    }
+}
+
+
+/* end display post screen */
 
 #uploadForm{
     font-size: $mainFontSize;

@@ -3,17 +3,13 @@
 
 
 @section('content')
-    <div class="">
-        <div class="inner test">
-            <div class="title m-b-md">
-                MIRROR
+    <main>
+        <div class="inner">
+            <div id="infoContainer">
             </div>
-
-            <h3>{{$data}}</h3>
-
             <div class="thumbnailGrid">
                 @forelse ($posts as $post)
-                    <a href={{$post->file}}>
+                    <a href={{"/post/".$post->id}}>
                         <img src={{$post->thumbnail}} alt="thumbnail">
                     </a>
                 @empty
@@ -21,5 +17,5 @@
                 @endforelse
             </div>
         </div>
-    </div>  
+    </main>
 @endsection
