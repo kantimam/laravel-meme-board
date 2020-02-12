@@ -15,15 +15,15 @@ Auth::routes();
 
 Route::get('/', 'PostController@index');
 Route::get('/home', 'PostController@index');
-Route::get('/profile', 'PostController@index')->name('profile');
 Route::get('/upload', 'PostController@create');
 Route::get('/post/{id}', 'PostController@show');
+
+Route::get('/profile', 'HomeController@profile')->name('profile');
+
 
 Route::post('/post', 'PostController@store');
 
 
-Route::get('/test', function () {
-    return view('welcome');
-});
+
 
 

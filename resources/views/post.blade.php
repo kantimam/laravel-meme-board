@@ -3,7 +3,6 @@
 
 
 @section('content')
-    <main>
         <div class="inner">
             <div id="postLayout">
                 <section id="postOptions">
@@ -34,5 +33,4 @@
             </div>
             
         </div>
-    </main>  
 @endsection
