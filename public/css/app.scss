@@ -105,7 +105,7 @@ ul {
 }
 
 .textInput {
-    padding: 0.1rem 0.6rem;
+    padding: 0.4rem 0.6rem;
 
 }
 
@@ -118,13 +118,13 @@ ul {
     width: $maxWidth;
     text-align: left;
     input{
-        padding: 0.5rem 0.6rem;
         background-color: $bgColor;
         border: 0.1rem solid $mainColor;
         outline: none;
         width: 100%;
     }
     label{
+        font-size: $mainFontSize;
         cursor: text;
         display: flex;
         align-items: center;
@@ -141,7 +141,7 @@ ul {
         label{
             user-select: none;
             margin: 0;
-            top: -0.6rem;
+            top: -0.7rem;
         }
     }
     label.inputFilled{
@@ -164,7 +164,7 @@ ul {
     display: inline-block;
 
     .textInputWrapper{
-        margin-top: 1rem;
+        margin: 1rem auto 0 auto;
     }
 }
 
@@ -370,10 +370,8 @@ nav {
         }
     }
 
-    .textInput {
-        display: block;
-        width: 98%;
-        margin: 0.4rem auto 1.2rem auto;
+    .textInputWrapper {
+        margin: 1.4rem auto 1.2rem auto;
     }
 
 }

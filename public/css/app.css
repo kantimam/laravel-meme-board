@@ -121,7 +121,7 @@ ul {
 }
 
 .textInput {
-  padding: 0.1rem 0.6rem;
+  padding: 0.4rem 0.6rem;
 }
 
 .mainSubmit {
@@ -135,7 +135,6 @@ ul {
 }
 
 .textInputWrapper input {
-  padding: 0.5rem 0.6rem;
   background-color: #ebebeb;
   border: 0.1rem solid greenyellow;
   outline: none;
@@ -143,6 +142,7 @@ ul {
 }
 
 .textInputWrapper label {
+  font-size: 1.2rem;
   cursor: text;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -167,7 +167,7 @@ ul {
       -ms-user-select: none;
           user-select: none;
   margin: 0;
-  top: -0.6rem;
+  top: -0.7rem;
 }
 
 .textInputWrapper label.inputFilled {
@@ -191,7 +191,7 @@ ul {
 }
 
 .logSignWrapper .textInputWrapper {
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
 }
 
 /* end login */
@@ -404,10 +404,8 @@ nav ul {
   display: none !important;
 }
 
-#uploadForm .textInput {
-  display: block;
-  width: 98%;
-  margin: 0.4rem auto 1.2rem auto;
+#uploadForm .textInputWrapper {
+  margin: 1.4rem auto 1.2rem auto;
 }
 
 #uploadInfo {

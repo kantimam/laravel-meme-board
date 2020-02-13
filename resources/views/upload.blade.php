@@ -27,16 +27,19 @@
             </div>
 
             <div class="textInputWrapper">
-                <label for="uploadTitle">ADD A TITLE</label>
-                <input id="uploadTitle" placeholder="give your post a title" class="textInput" type="text" name="title">
-                <input placeholder="add a few tags seperated by ," class="textInput" type="text" name="tags">
+                <label for="email">{{ __('E-Mail Address') }}</label>
+                <input class="textInput" id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             </div>
+            <input placeholder="add a few tags seperated by ," class="textInput" type="text" name="tags">
 
             <input class="mainSubmit fancyShadow mainColor" type="submit">
             
             @csrf
         </form>
     </div>
+
+    <script src="{{ asset('js/form.js') }}">
+    </script>
 
     <script>
         const input=document.querySelector("#file");
