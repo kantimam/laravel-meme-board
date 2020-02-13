@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="inner">
-    <div class="row justify-content-center">
+<div class="inner centerText">
+    <div class="margin0Auto centerText logSignWrapper fancyShadow">
+        <h1>LOG IN</h1>
         <form method="POST" class="mainForm" action="{{ route('login') }}">
             @csrf
 
             <div class="textInputWrapper">
                 <label for="email">{{ __('E-Mail Address') }}</label>
 
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -21,7 +22,7 @@
             <div class="textInputWrapper">
                 <label for="password">{{ __('Password') }}</label>
 
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -39,15 +40,17 @@
             </div>
             
             @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+                <a class="innerLink" href="{{ route('password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
             @endif
             
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="mainSubmit mainColor">
                 {{ __('Login') }}
             </button>        
         </form>
     </div>
 </div>
+<script src="{{ asset('js/form.js') }}">
+</script>
 @endsection

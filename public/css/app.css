@@ -7,7 +7,8 @@
           box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -42,6 +43,11 @@ li {
 
 a {
   text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 
 .centerAll {
@@ -84,11 +90,6 @@ a {
   cursor: pointer;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-}
-
 .inner {
   margin: 0 auto;
   width: 76rem;
@@ -112,6 +113,88 @@ ul {
   background-color: greenyellow;
 }
 
+.textInput,
+.mainSubmit {
+  font-size: 1.2rem;
+  border-radius: 0.4rem;
+  border: none;
+}
+
+.textInput {
+  padding: 0.1rem 0.6rem;
+}
+
+.mainSubmit {
+  padding: 0.4rem 3rem;
+}
+
+.textInputWrapper {
+  position: relative;
+  width: 94%;
+  text-align: left;
+}
+
+.textInputWrapper input {
+  padding: 0.5rem 0.6rem;
+  background-color: #ebebeb;
+  border: 0.1rem solid greenyellow;
+  outline: none;
+  width: 100%;
+}
+
+.textInputWrapper label {
+  cursor: text;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  margin: 0.5rem 0;
+  padding: 0 0.3rem 0 0.1rem;
+  left: 0.4rem;
+  position: absolute;
+  background-color: #ebebeb;
+  text-align: left;
+  -webkit-transition: top 0.4s;
+  transition: top 0.4s;
+}
+
+.textInputWrapper:focus-within label, .textInputWrapper label.inputFilled label {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+  top: -0.6rem;
+}
+
+.textInputWrapper label.inputFilled {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+  top: -0.6rem;
+}
+
+.mainForm {
+  padding: 1rem 0.8rem;
+}
+
+/* login signup password and stuff^^ */
+.logSignWrapper {
+  padding: 2rem 0;
+  margin-top: 20vh;
+  display: inline-block;
+}
+
+.logSignWrapper .textInputWrapper {
+  margin-top: 1rem;
+}
+
+/* end login */
 /* nav */
 nav {
   background-color: greenyellow;
@@ -277,7 +360,8 @@ nav ul {
   background-color: #9090d1;
 }
 
-#uploadForm #dropZoneWrapper.dragOver strong, #uploadForm #dropZoneWrapper.dragOver span {
+#uploadForm #dropZoneWrapper.dragOver strong,
+#uploadForm #dropZoneWrapper.dragOver span {
   display: none;
 }
 
@@ -326,33 +410,11 @@ nav ul {
   margin: 0.4rem auto 1.2rem auto;
 }
 
-#uploadForm .mainSubmit {
-  padding: 0.4rem 3rem;
-}
-
 #uploadInfo {
   border-radius: 5rem;
   padding: 1rem;
   font-size: 1.4rem;
   background-color: rgba(220, 220, 220, 0.4);
-}
-
-.textInputWrapper {
-  width: 100%;
-  padding: 0.8rem 0.6rem;
-}
-
-.textInputWrapper label {
-  font-weight: bold;
-  display: block;
-  text-align: center;
-}
-
-.textInput, .mainSubmit {
-  font-size: 1.2rem;
-  padding: 0.1rem 0.6rem;
-  border-radius: 0.4rem;
-  border: none;
 }
 
 .closeIcon {

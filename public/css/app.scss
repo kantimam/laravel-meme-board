@@ -5,119 +5,206 @@ $maxWidth: 94%;
 $mainFontSize: 1.2rem;
 
 $testColor: lightblue;
-.test{
+
+.test {
     background-color: $testColor;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
-    height: 100%;  
+    height: 100%;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
 }
-main{
+
+main {
     flex: 1;
     background-color: $bgColor;
     overflow: auto;
 }
-.fullHeight{
+
+.fullHeight {
     min-height: 100%;
 }
 
-li{
+li {
     list-style: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.centerAll{
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.centerAll {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.flexCenterAllVert{
+
+.flexCenterAllVert {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.centerText{
+
+.centerText {
     text-align: center;
 }
-.margin0Auto{
+
+.margin0Auto {
     margin: 0 auto;
 }
-.pointer{
+
+.pointer {
     cursor: pointer;
 }
-ul{
-    margin: 0;
-    padding: 0;
-}
-.inner{
+
+.inner {
     margin: 0 auto;
     width: $innerWidth;
     max-width: $maxWidth;
 }
 
-.flexContent{
+.flexContent {
     flex: 1;
     overflow: auto;
 }
-.fullSizeBg{
+
+.fullSizeBg {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.mainColor{
+.mainColor {
     background-color: $mainColor;
 }
 
-.mainForm{
-    padding: 1rem;
+
+.textInput,
+.mainSubmit {
+    font-size: $mainFontSize;
+    border-radius: 0.4rem;
+    border: none;
 }
+
+.textInput {
+    padding: 0.1rem 0.6rem;
+
+}
+
+.mainSubmit {
+    padding: 0.4rem 3rem;
+}
+
+.textInputWrapper {
+    position: relative;
+    width: $maxWidth;
+    text-align: left;
+    input{
+        padding: 0.5rem 0.6rem;
+        background-color: $bgColor;
+        border: 0.1rem solid $mainColor;
+        outline: none;
+        width: 100%;
+    }
+    label{
+        cursor: text;
+        display: flex;
+        align-items: center;
+        top: 0;
+        margin: 0.5rem 0;
+        padding: 0 0.3rem 0 0.1rem;
+        left: 0.4rem;
+        position: absolute;
+        background-color: $bgColor;
+        text-align: left;
+        transition: top 0.4s;
+    }
+    &:focus-within, label.inputFilled{
+        label{
+            user-select: none;
+            margin: 0;
+            top: -0.6rem;
+        }
+    }
+    label.inputFilled{
+        user-select: none;
+        margin: 0;
+        top: -0.6rem;
+    }
+}
+
+
+.mainForm {
+    padding: 1rem 0.8rem;
+}
+
+/* login signup password and stuff^^ */
+
+.logSignWrapper {
+    padding: 2rem 0;
+    margin-top: 20vh;
+    display: inline-block;
+
+    .textInputWrapper{
+        margin-top: 1rem;
+    }
+}
+
+
+/* end login */
+
 
 /* nav */
 
-nav{
+nav {
     background-color: $mainColor;
-    .inner{
+
+    .inner {
         height: 3rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
-    ul{
+
+    ul {
         width: 24rem;
         max-width: 100%;
         justify-content: space-between !important;
     }
-    
+
 }
 
-#createPostButton{
+#createPostButton {
     border-radius: 0.4rem;
     background-color: white;
     padding: 0.4rem 1rem;
 }
 
-#userNav{
+#userNav {
     width: 12rem;
     display: flex;
     justify-content: space-between;
 }
-#profileLogOutWrapper{
+
+#profileLogOutWrapper {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -129,17 +216,19 @@ nav{
 
 /* index */
 
-#infoContainer{
+#infoContainer {
     min-height: 0.2rem;
 }
 
-.thumbnailGrid{
+.thumbnailGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     grid-gap: 0.2rem;
-    a{
+
+    a {
         height: 12rem;
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -152,38 +241,42 @@ nav{
 
 /* display post screen */
 
-#postLayout{
+#postLayout {
     width: 100%;
     /* display: grid;
     grid-template-columns: repeat(10, 1fr); */
     display: flex;
 }
-#postOptions{
+
+#postOptions {
     padding-top: 4rem;
     padding-right: 1rem;
 }
-#postComments{
+
+#postComments {
     min-width: 26rem;
     background-color: lightpink;
 }
 
-.ratePostWrapper{
+.ratePostWrapper {
     text-align: center;
     padding: 0.1rem 1rem;
     border-radius: 0.2rem;
     border: 0.04rem solid black;
-    p{
+
+    p {
         margin: 0.6rem 0.1rem;
         font-size: $mainFontSize;
         font-weight: bold;
     }
 }
 
-#postWrapper{
+#postWrapper {
     flex: 1;
     /* grid-column: 1/8; */
     min-height: 16rem;
-    img{
+
+    img {
         width: 100%;
     }
 }
@@ -191,7 +284,7 @@ nav{
 
 /* end display post screen */
 
-#uploadForm{
+#uploadForm {
     font-size: $mainFontSize;
     margin-top: -4rem;
     background-color: $bgColor;
@@ -201,40 +294,49 @@ nav{
     border-radius: 0.6rem;
     overflow: hidden;
     padding-bottom: 1.6rem;
-    #file{
+
+    #file {
         display: none;
     }
-    #dropZoneWrapper{
+
+    #dropZoneWrapper {
         min-height: 18rem;
         width: 100%;
         overflow: hidden;
         position: relative;
-        h3{
+
+        h3 {
             display: none;
         }
-        img{
+
+        img {
             display: block;
             width: 8rem;
             max-width: 80%;
             margin-bottom: 2rem;
         }
-        &.dragOver{
+
+        &.dragOver {
             background-color: rgb(144, 144, 209);
-            strong, span{
+
+            strong,
+            span {
                 display: none;
-            
+
             }
-            span{
+
+            span {
                 display: none;
             }
-            h3{
+
+            h3 {
                 display: block;
             }
         }
 
     }
-    
-    #dropZone{
+
+    #dropZone {
         position: absolute;
         top: 0;
         left: 0;
@@ -243,64 +345,52 @@ nav{
     }
 
 
-    #uploadPreview{
+    #uploadPreview {
         display: none;
         position: relative;
-        img{
+
+        img {
             width: 100%;
         }
-        .closeIcon{
+
+        .closeIcon {
             position: absolute;
             right: 0;
             top: 0;
         }
     }
 
-    &.showUploadPreview{
-        #uploadPreview{
+    &.showUploadPreview {
+        #uploadPreview {
             display: block !important;
         }
-        #dropZoneWrapper{
+
+        #dropZoneWrapper {
             display: none !important;
         }
     }
-    .textInput{
+
+    .textInput {
         display: block;
         width: 98%;
         margin: 0.4rem auto 1.2rem auto;
     }
-    .mainSubmit{
-        padding: 0.4rem 3rem;
-    }
-    
+
 }
 
-#uploadInfo{
+#uploadInfo {
     border-radius: 5rem;
     padding: 1rem;
     font-size: 1.4rem;
-    background-color: rgba(220,220,220, 0.4);
-}
-
-.textInputWrapper{
-    width: 100%;
-    padding: 0.8rem 0.6rem;
-    label{
-        font-weight: bold;
-        display: block;
-        text-align: center;
-    }
-}
-
-.textInput, .mainSubmit{
-    font-size: $mainFontSize;
-    padding: 0.1rem 0.6rem;
-    border-radius: 0.4rem;
-    border: none;
+    background-color: rgba(220, 220, 220, 0.4);
 }
 
 
-.closeIcon{
+
+
+
+
+.closeIcon {
     border-radius: 10rem;
     background-color: white;
     height: 2rem;
@@ -308,8 +398,7 @@ nav{
     font-weight: bold;
 }
 
-.fancyShadow{
+.fancyShadow {
     border-radius: 0.6rem;
-    box-shadow: 0.4rem 0.2rem 0.5rem rgba(220,220,220, 1), -0.4rem -0.2rem 0.8rem rgba(255,255,255,1), 1rem 1rem 1rem rgba(255,255,255,0.25) inset;
-  }
-  
+    box-shadow: 0.4rem 0.2rem 0.5rem rgba(220, 220, 220, 1), -0.4rem -0.2rem 0.8rem rgba(255, 255, 255, 1), 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+}

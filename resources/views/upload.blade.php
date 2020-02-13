@@ -6,7 +6,7 @@
         <form id="uploadForm" action="/post" method="POST" enctype="multipart/form-data" class="flexCenterAllVert fancyShadow">
             <input accept="image/" type="file" name="image" id="file">
             
-        <div id="dropZoneWrapper"  class="centerAll mainColor fullSizeBg" style="background-image: url({{asset("image/upload_illustration.svg")}})">
+            <div id="dropZoneWrapper"  class="centerAll mainColor fullSizeBg" style="background-image: url({{asset("image/upload_illustration.svg")}})">
                 <div id="uploadInfo">
                     {{-- <img class="margin0Auto" src="{{asset('icon/square-upload.svg')}}" alt="upload"/> --}}
                     <strong class="pointer">Choose a file&nbsp</strong>
