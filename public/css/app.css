@@ -29,7 +29,7 @@ main {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background-color: #ebebeb;
+  background-color: #e2e2e2;
   overflow: auto;
 }
 
@@ -43,11 +43,16 @@ li {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 ul {
   margin: 0;
   padding: 0;
+}
+
+label, input, p, span, button, div {
+  font-size: 1.2rem;
 }
 
 .centerAll {
@@ -110,12 +115,12 @@ ul {
 }
 
 .mainColor {
-  background-color: greenyellow;
+  color: #e2e2e2;
+  background-color: #972bd6;
 }
 
 .textInput,
 .mainSubmit {
-  font-size: 1.2rem;
   border-radius: 0.4rem;
   border: none;
 }
@@ -125,24 +130,24 @@ ul {
 }
 
 .mainSubmit {
+  display: block;
   padding: 0.4rem 3rem;
 }
 
 .textInputWrapper {
   position: relative;
-  width: 94%;
   text-align: left;
 }
 
 .textInputWrapper input {
-  background-color: #ebebeb;
-  border: 0.1rem solid greenyellow;
+  background-color: #e2e2e2;
+  border: 0.05rem solid #A9A9A9;
   outline: none;
+  min-width: 20rem;
   width: 100%;
 }
 
 .textInputWrapper label {
-  font-size: 1.2rem;
   cursor: text;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -151,11 +156,11 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   top: 0;
-  margin: 0.5rem 0;
+  margin: 0.45rem 0;
   padding: 0 0.3rem 0 0.1rem;
   left: 0.4rem;
   position: absolute;
-  background-color: #ebebeb;
+  background-color: #e2e2e2;
   text-align: left;
   -webkit-transition: top 0.4s;
   transition: top 0.4s;
@@ -179,25 +184,51 @@ ul {
   top: -0.6rem;
 }
 
+.checkInputWrapper {
+  text-align: left;
+}
+
 .mainForm {
   padding: 1rem 0.8rem;
 }
 
 /* login signup password and stuff^^ */
 .logSignWrapper {
-  padding: 2rem 0;
+  padding: 1rem 0;
   margin-top: 20vh;
   display: inline-block;
 }
 
+.logSignWrapper h1 {
+  margin: 1rem 0 0 0;
+}
+
 .logSignWrapper .textInputWrapper {
-  margin: 1rem auto 0 auto;
+  margin: 1.2rem auto 0 auto;
+}
+
+.logSignWrapper button {
+  margin: 1.4rem auto 0 auto;
+}
+
+#rememberForgotPasswordWrapper {
+  margin-top: 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#rememberForgotPasswordWrapper * {
+  font-size: 1rem;
 }
 
 /* end login */
 /* nav */
 nav {
-  background-color: greenyellow;
+  background-color: #f0f0f0;
 }
 
 nav .inner {
@@ -222,8 +253,10 @@ nav ul {
 }
 
 #createPostButton {
+  font-weight: bold;
+  background-color: #972bd6;
+  color: white;
   border-radius: 0.4rem;
-  background-color: white;
   padding: 0.4rem 1rem;
 }
 
@@ -305,7 +338,6 @@ nav ul {
 
 .ratePostWrapper p {
   margin: 0.6rem 0.1rem;
-  font-size: 1.2rem;
   font-weight: bold;
 }
 
@@ -323,9 +355,8 @@ nav ul {
 
 /* end display post screen */
 #uploadForm {
-  font-size: 1.2rem;
   margin-top: -4rem;
-  background-color: #ebebeb;
+  background-color: #e2e2e2;
   border-radius: 1rem;
   width: 32rem;
   max-width: 94%;
@@ -406,13 +437,18 @@ nav ul {
 
 #uploadForm .textInputWrapper {
   margin: 1.4rem auto 1.2rem auto;
+  width: 94%;
 }
 
 #uploadInfo {
   border-radius: 5rem;
   padding: 1rem;
   font-size: 1.4rem;
-  background-color: rgba(220, 220, 220, 0.4);
+  background-color: rgba(239, 239, 239, 0.733);
+}
+
+#uploadInfo * {
+  color: black;
 }
 
 .closeIcon {

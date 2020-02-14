@@ -1,5 +1,9 @@
-$mainColor: greenyellow;
-$bgColor: rgb(235, 235, 235);
+$mainColor: rgb(151, 43, 214);
+$secondaryColor: #A9A9A9;
+$bgColor: rgb(226, 226, 226);
+$bgColorLight: rgb(240, 240, 240);
+$fontDark: black;
+$fontLight: white;
 $innerWidth: 76rem;
 $maxWidth: 94%;
 $mainFontSize: 1.2rem;
@@ -43,11 +47,15 @@ li {
 
 a {
     text-decoration: none;
+    color: $fontDark;
 }
 
 ul {
     margin: 0;
     padding: 0;
+}
+label, input, p, span, button, div{
+    font-size: $mainFontSize;
 }
 
 .centerAll {
@@ -93,13 +101,14 @@ ul {
 }
 
 .mainColor {
+    color: $bgColor;
     background-color: $mainColor;
+    
 }
 
 
 .textInput,
 .mainSubmit {
-    font-size: $mainFontSize;
     border-radius: 0.4rem;
     border: none;
 }
@@ -110,26 +119,26 @@ ul {
 }
 
 .mainSubmit {
+    display: block;
     padding: 0.4rem 3rem;
 }
 
 .textInputWrapper {
     position: relative;
-    width: $maxWidth;
     text-align: left;
     input{
         background-color: $bgColor;
-        border: 0.1rem solid $mainColor;
+        border: 0.05rem solid $secondaryColor;
         outline: none;
+        min-width: 20rem;
         width: 100%;
     }
     label{
-        font-size: $mainFontSize;
         cursor: text;
         display: flex;
         align-items: center;
         top: 0;
-        margin: 0.5rem 0;
+        margin: 0.45rem 0;
         padding: 0 0.3rem 0 0.1rem;
         left: 0.4rem;
         position: absolute;
@@ -151,6 +160,9 @@ ul {
     }
 }
 
+.checkInputWrapper{
+    text-align: left;
+}
 
 .mainForm {
     padding: 1rem 0.8rem;
@@ -159,15 +171,32 @@ ul {
 /* login signup password and stuff^^ */
 
 .logSignWrapper {
-    padding: 2rem 0;
+    padding: 1rem 0;
     margin-top: 20vh;
     display: inline-block;
 
-    .textInputWrapper{
-        margin: 1rem auto 0 auto;
+    h1{
+        margin: 1rem 0 0 0;
     }
+
+    .textInputWrapper{
+        margin: 1.2rem auto 0 auto;
+    }
+    button{
+        margin: 1.4rem auto 0 auto;
+    }
+    
 }
 
+#rememberForgotPasswordWrapper{
+    margin-top: 0.4rem;
+    display: flex;
+    justify-content: space-between;
+    *{
+        font-size: 1rem;
+    }
+
+}
 
 /* end login */
 
@@ -175,8 +204,7 @@ ul {
 /* nav */
 
 nav {
-    background-color: $mainColor;
-
+    background-color: $bgColorLight;
     .inner {
         height: 3rem;
         display: flex;
@@ -193,8 +221,10 @@ nav {
 }
 
 #createPostButton {
+    font-weight: bold;
+    background-color: $mainColor;
+    color: $fontLight;
     border-radius: 0.4rem;
-    background-color: white;
     padding: 0.4rem 1rem;
 }
 
@@ -266,7 +296,6 @@ nav {
 
     p {
         margin: 0.6rem 0.1rem;
-        font-size: $mainFontSize;
         font-weight: bold;
     }
 }
@@ -285,7 +314,6 @@ nav {
 /* end display post screen */
 
 #uploadForm {
-    font-size: $mainFontSize;
     margin-top: -4rem;
     background-color: $bgColor;
     border-radius: 1rem;
@@ -372,15 +400,17 @@ nav {
 
     .textInputWrapper {
         margin: 1.4rem auto 1.2rem auto;
+        width: $maxWidth;
     }
 
 }
 
 #uploadInfo {
+    * {color: black};
     border-radius: 5rem;
     padding: 1rem;
     font-size: 1.4rem;
-    background-color: rgba(220, 220, 220, 0.4);
+    background-color: rgba(239, 239, 239, 0.733);
 }
 
 

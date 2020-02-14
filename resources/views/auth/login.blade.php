@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="inner centerText">
-    <div class="margin0Auto centerText logSignWrapper fancyShadow">
-        <h1>LOG IN</h1>
+    <div class="margin0Auto logSignWrapper fancyShadow">
+        <h1>LogIn</h1>
         <form method="POST" class="mainForm" action="{{ route('login') }}">
             @csrf
 
@@ -31,19 +31,22 @@
                 @enderror
             </div>
 
-            <div class="checkInputWrapper">
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                <label for="remember">
-                    {{ __('Remember Me') }}
-                </label>
+            <div id="rememberForgotPasswordWrapper">
+                <div class="checkInputWrapper">
+                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+    
+                    <label for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
+                
+                @if (Route::has('password.request'))
+                    <a id="forgotPassword" class="innerLink" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
             </div>
             
-            @if (Route::has('password.request'))
-                <a class="innerLink" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif
             
             <button type="submit" class="mainSubmit mainColor">
                 {{ __('Login') }}

@@ -1,4 +1,4 @@
-<nav>
+<nav {{-- class="mainColor" --}}>
     <div class="inner">
         <ul class="centerAll">
             <li>
@@ -6,7 +6,9 @@
                     {{ config('app.name', 'Munki') }}
                 </a>
             </li>
-            <li><a id="createPostButton" href="/upload">NEW POST</a></li>
+            <li>
+                <a id="createPostButton" href="/upload">NEW POST</a>
+            </li>
             <li>NEW</li>
             <li>POPULAR</li>
         </ul>
