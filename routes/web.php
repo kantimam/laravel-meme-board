@@ -18,10 +18,12 @@ Route::get('/home', 'PostController@index');
 Route::get('/upload', 'PostController@create');
 Route::get('/post/{id}', 'PostController@show');
 
+
 Route::get('/profile', 'HomeController@profile')->name('profile');
 
 
 Route::post('/post', 'PostController@store');
+Route::post('/vote/post', 'PostController@vote');
 
 
 

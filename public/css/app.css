@@ -116,7 +116,7 @@ label, input, p, span, button, div {
 
 .mainColor {
   color: #e2e2e2;
-  background-color: #972bd6;
+  background-color: #9147ff;
 }
 
 .textInput,
@@ -132,6 +132,13 @@ label, input, p, span, button, div {
 .mainSubmit {
   display: block;
   padding: 0.4rem 3rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.mainSubmit:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .textInputWrapper {
@@ -143,7 +150,6 @@ label, input, p, span, button, div {
   background-color: #e2e2e2;
   border: 0.05rem solid #A9A9A9;
   outline: none;
-  min-width: 20rem;
   width: 100%;
 }
 
@@ -195,8 +201,10 @@ label, input, p, span, button, div {
 /* login signup password and stuff^^ */
 .logSignWrapper {
   padding: 1rem 0;
-  margin-top: 20vh;
+  margin-top: 14vh;
   display: inline-block;
+  width: 22rem;
+  max-width: 94%;
 }
 
 .logSignWrapper h1 {
@@ -254,7 +262,7 @@ nav ul {
 
 #createPostButton {
   font-weight: bold;
-  background-color: #972bd6;
+  background-color: #9147ff;
   color: white;
   border-radius: 0.4rem;
   padding: 0.4rem 1rem;
@@ -333,10 +341,11 @@ nav ul {
   text-align: center;
   padding: 0.1rem 1rem;
   border-radius: 0.2rem;
-  border: 0.04rem solid black;
+  /* border: 0.04rem solid black; */
 }
 
-.ratePostWrapper p {
+.ratePostWrapper p, .ratePostWrapper a {
+  font-size: 1.4rem;
   margin: 0.6rem 0.1rem;
   font-weight: bold;
 }
@@ -461,7 +470,7 @@ nav ul {
 
 .fancyShadow {
   border-radius: 0.6rem;
-  -webkit-box-shadow: 0.4rem 0.2rem 0.5rem gainsboro, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
-          box-shadow: 0.4rem 0.2rem 0.5rem gainsboro, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+  -webkit-box-shadow: 0.4rem 0.2rem 0.5rem lightgray, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+          box-shadow: 0.4rem 0.2rem 0.5rem lightgray, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
 }
 /*# sourceMappingURL=app.css.map */

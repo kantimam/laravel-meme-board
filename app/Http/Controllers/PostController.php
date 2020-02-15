@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Auth;
 use App\Post;
 
 class PostController extends Controller
@@ -124,5 +125,14 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function vote(Request $request){
+        if(Auth::check()){
+            /* if user is logged in vote with his useID */
+            return "you are logged in :)";
+        }
+        /* if not logged in vote with his sessionToken */
+        return json_encode($request->session()->get('_token'));
     }
 }

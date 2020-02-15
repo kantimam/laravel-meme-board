@@ -1,4 +1,4 @@
-$mainColor: rgb(151, 43, 214);
+$mainColor: #9147ff;
 $secondaryColor: #A9A9A9;
 $bgColor: rgb(226, 226, 226);
 $bgColorLight: rgb(240, 240, 240);
@@ -121,6 +121,10 @@ label, input, p, span, button, div{
 .mainSubmit {
     display: block;
     padding: 0.4rem 3rem;
+    transition: 0.5s;
+    &:hover{
+        transform: scale(1.05);
+    }
 }
 
 .textInputWrapper {
@@ -130,7 +134,6 @@ label, input, p, span, button, div{
         background-color: $bgColor;
         border: 0.05rem solid $secondaryColor;
         outline: none;
-        min-width: 20rem;
         width: 100%;
     }
     label{
@@ -172,9 +175,10 @@ label, input, p, span, button, div{
 
 .logSignWrapper {
     padding: 1rem 0;
-    margin-top: 20vh;
+    margin-top: 14vh;
     display: inline-block;
-
+    width: 22rem;
+    max-width: $maxWidth;
     h1{
         margin: 1rem 0 0 0;
     }
@@ -292,9 +296,10 @@ nav {
     text-align: center;
     padding: 0.1rem 1rem;
     border-radius: 0.2rem;
-    border: 0.04rem solid black;
+    /* border: 0.04rem solid black; */
 
-    p {
+    p, a {
+        font-size: 1.4rem;
         margin: 0.6rem 0.1rem;
         font-weight: bold;
     }
@@ -428,5 +433,5 @@ nav {
 
 .fancyShadow {
     border-radius: 0.6rem;
-    box-shadow: 0.4rem 0.2rem 0.5rem rgba(220, 220, 220, 1), -0.4rem -0.2rem 0.8rem rgba(255, 255, 255, 1), 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+    box-shadow: 0.4rem 0.2rem 0.5rem rgb(211, 211, 211), -0.4rem -0.2rem 0.8rem rgba(255, 255, 255, 1), 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
 }
