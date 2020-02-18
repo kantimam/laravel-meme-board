@@ -33,35 +33,47 @@
             </div>
             
         </div>
-        <script>
-            const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-            function vote(vote){
-                const postId={{$post->id}};
-                if(postId && token){
-                    const formData=new FormData();
-                    formData.append('vote', vote? 'upvote' : 'downvote');
-                    formData.append('postId', postId);
-                    fetch(`/vote/post`, {
-                        headers: {
-                            "Accept": "application/json, text-plain, */*",
-                            "X-CSRF-TOKEN": token
-                        },
-                        method: 'post',
-                        credentials: "same-origin",
-                        body: formData
-                        })
-                        .then(response=>{
-                            return response.text();
-                        })
-                        .then(data=>
-                            console.log(data)
-                        )
-                        .catch(e=>
-                            console.log(e)
-                        )
-                }
-                else alert("request failed :(")
+        @auth
+            <script>
+                const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                function vote(vote){                
+                    if(postId && token){
+                        const formData=new FormData();
+                        formData.append('vote', vote? 'upvote' : 'downvote');
+                        formData.append('postId', postId);
+                        fetch(`/vote/post`, {
+                            headers: {
+                                "Accept": "application/json, text-plain, */*",
+                                "X-CSRF-TOKEN": token
+                            },
+                            method: 'post',
+                            credentials: "same-origin",
+                            body: formData
+                            })
+                            .then(response=>{
+                                if(!response.ok) throw Error(response.statusText)
+                                return response.text();
+                            })
+                            .then(data=>
+                                console.log(data)
+                            )
+                            .catch(e=>{
+                                window.location.href = '/login';
 
-            }
-        </script>
+                            }
+                            )
+                    }
+                    else alert("request failed :(")
+
+                }
+            </script>
+        @endauth
+        @guest
+            <script>
+                function vote(vote){
+                    openAlert();
+                }
+            </script>
+        @endguest
+        
 @endsection

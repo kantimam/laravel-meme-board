@@ -32,6 +32,7 @@ body {
 }
 
 main {
+    position: relative;
     flex: 1;
     background-color: $bgColor;
     overflow: auto;
@@ -74,6 +75,9 @@ label, input, p, span, button, div{
 .centerText {
     text-align: center;
 }
+.textUpper{
+    text-transform: uppercase;
+}
 
 .margin0Auto {
     margin: 0 auto;
@@ -82,7 +86,9 @@ label, input, p, span, button, div{
 .pointer {
     cursor: pointer;
 }
-
+.hidden{
+    display: none;
+}
 .inner {
     margin: 0 auto;
     width: $innerWidth;
@@ -93,6 +99,8 @@ label, input, p, span, button, div{
     flex: 1;
     overflow: auto;
 }
+
+
 
 .fullSizeBg {
     background-position: center;
@@ -283,6 +291,7 @@ nav {
 }
 
 #postOptions {
+    position: relative;
     padding-top: 4rem;
     padding-right: 1rem;
 }
@@ -434,4 +443,35 @@ nav {
 .fancyShadow {
     border-radius: 0.6rem;
     box-shadow: 0.4rem 0.2rem 0.5rem rgb(211, 211, 211), -0.4rem -0.2rem 0.8rem rgba(255, 255, 255, 1), 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+}
+
+
+#alertSection{
+    z-index: 4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 10rem;
+    width: 100%;
+    padding: 1rem 0;
+    
+    .alertWrapper{
+        position: relative;
+        width: 32rem;
+        max-width: $maxWidth;
+        min-height: 10rem;
+        padding: 1rem;
+        background-color: $bgColorLight;
+        border-radius: 0.6rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .closeIcon{
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .mainSubmit{
+        color: $fontDark;
+    }
 }

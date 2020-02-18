@@ -26,6 +26,7 @@ body {
 }
 
 main {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -87,12 +88,20 @@ label, input, p, span, button, div {
   text-align: center;
 }
 
+.textUpper {
+  text-transform: uppercase;
+}
+
 .margin0Auto {
   margin: 0 auto;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .inner {
@@ -328,6 +337,7 @@ nav ul {
 }
 
 #postOptions {
+  position: relative;
   padding-top: 4rem;
   padding-right: 1rem;
 }
@@ -472,5 +482,37 @@ nav ul {
   border-radius: 0.6rem;
   -webkit-box-shadow: 0.4rem 0.2rem 0.5rem lightgray, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
           box-shadow: 0.4rem 0.2rem 0.5rem lightgray, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
+}
+
+#alertSection {
+  z-index: 4;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 10rem;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#alertSection .alertWrapper {
+  position: relative;
+  width: 32rem;
+  max-width: 94%;
+  min-height: 10rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.6rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#alertSection .closeIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#alertSection .mainSubmit {
+  color: black;
 }
 /*# sourceMappingURL=app.css.map */

@@ -137,14 +137,35 @@ class PostController extends Controller
                 return "you are logged in :)";
             }
             /* if not logged in vote with his sessionToken */
-            $vote=new AnonymousVote;
-            $myVote=$request->vote=='upvote'? 1 : -1;
-            $vote->vote=$myVote;
-            $vote->post_id=$request->postId;
-            $vote->session_id=$request->session()->get('_token');
-            $vote->save();
-            return json_encode($request->session()->get('_token'));
+            return response("you need to be logged in to vote", 403);;
         }
         return 'vote failed! :(';        
+    }
+
+    public function voteWithAnon(Request $request){
+        if($request->has('vote') && $request->has('postId') && $request->postId!=null){
+            if(Auth::check()){
+                /* if user is logged in vote with his useID */
+                //$vote->save();
+                return "you are logged in :)";
+            }
+            /* if not logged in vote with his sessionToken */
+            return $this->anonVote($request->postId, $request->vote, $request->session()->get('_token'));
+        }
+        return 'vote failed! :(';        
+    }
+
+    private function anonVote($postId, $inVote, $sessionToken){
+        $vote=new AnonymousVote;
+        if($vote::where('session_id', $sessionToken)->where('post_id', $postId)->first()){
+            return response("there is already a vote with this session token", 409);
+        }
+
+        $myVote=$inVote=='upvote'? 1 : -1;
+        $vote->vote=$myVote;
+        $vote->post_id=$postId;
+        $vote->session_id=$sessionToken;
+        $vote->save();
+        return "succesfully voted! :)";
     }
 }

@@ -32,7 +32,7 @@
             </div>
             <input placeholder="add a few tags seperated by ," class="textInput" type="text" name="tags">
 
-            <input class="mainSubmit fancyShadow mainColor" type="submit">
+            <input class="mainSubmit mainColor" type="submit">
             
             @csrf
         </form>

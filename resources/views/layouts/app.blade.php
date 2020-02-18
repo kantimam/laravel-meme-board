@@ -21,8 +21,26 @@
 <body>
     @include('components.nav')
     <main>
+        <section id="alertSection" class="hidden">
+            <div class="alertWrapper flexCenterAllVert">
+                <div onclick=closeAlert() class="closeIcon centerAll pointer">X</div>
+                <h1 class="textUpper" id="alertSectionTitle">
+                   PLEASE LOG IN  
+                </h1> 
+                <a href="/login" class="mainSubmit mainColor">LOGIN</a>
+            </div>
+        </section>
         @yield('content')
     </main>
 </body>
+<script>
+    const alert=document.querySelector('#alertSection')
+    function openAlert(){
+        alert.classList.remove('hidden');
+    }
+    function closeAlert(){
+        alert.classList.add('hidden');
+    }
+</script>
 </html>
 
