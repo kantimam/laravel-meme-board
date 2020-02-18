@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\AnonymousVote;
+use App\Vote;
 
 class PostController extends Controller
 {
@@ -128,11 +130,21 @@ class PostController extends Controller
     }
 
     public function vote(Request $request){
-        if(Auth::check()){
-            /* if user is logged in vote with his useID */
-            return "you are logged in :)";
+        if($request->has('vote') && $request->has('postId') && $request->postId!=null){
+            if(Auth::check()){
+                /* if user is logged in vote with his useID */
+                //$vote->save();
+                return "you are logged in :)";
+            }
+            /* if not logged in vote with his sessionToken */
+            $vote=new AnonymousVote;
+            $myVote=$request->vote=='upvote'? 1 : -1;
+            $vote->vote=$myVote;
+            $vote->post_id=$request->postId;
+            $vote->session_id=$request->session()->get('_token');
+            $vote->save();
+            return json_encode($request->session()->get('_token'));
         }
-        /* if not logged in vote with his sessionToken */
-        return json_encode($request->session()->get('_token'));
+        return 'vote failed! :(';        
     }
 }
