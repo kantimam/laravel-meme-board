@@ -16,4 +16,12 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\User')->select(array("id","name"));
     }
+
+    public function updateRating(){
+        $upvotes=Vote::where('post_id',$this->id)->where('vote','1')->count();
+        $downvotes=Vote::where('post_id',$this->id)->where('vote','-1')->count();
+        
+        $this->rating=$upvotes-$downvotes;
+        $this->save();
+    }
 }

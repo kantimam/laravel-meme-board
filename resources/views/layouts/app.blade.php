@@ -23,9 +23,9 @@
     <main>
         <section id="alertSection" class="hidden">
             <div class="alertWrapper flexCenterAllVert">
-                <div onclick=closeAlert() class="closeIcon centerAll pointer">X</div>
+                <div onclick=closeAlert() class="closeIcon centerAll pointer fancyShadow">X</div>
                 <h1 class="textUpper" id="alertSectionTitle">
-                   PLEASE LOG IN  
+                   YOU NEED TO BE LOGGED IN 
                 </h1> 
                 <a href="/login" class="mainSubmit mainColor">LOGIN</a>
             </div>

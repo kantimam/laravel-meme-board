@@ -7,6 +7,7 @@ $fontLight: white;
 $innerWidth: 76rem;
 $maxWidth: 94%;
 $mainFontSize: 1.2rem;
+$mainRoundness: 0.4rem;
 
 $testColor: lightblue;
 
@@ -157,17 +158,22 @@ label, input, p, span, button, div{
         text-align: left;
         transition: top 0.4s;
     }
-    &:focus-within, label.inputFilled{
+    &:focus-within{
         label{
             user-select: none;
             margin: 0;
             top: -0.7rem;
+            background-color: unset !important;
+            background-image: linear-gradient($bgColor 60%,transparent 40%);
+
         }
     }
     label.inputFilled{
         user-select: none;
         margin: 0;
-        top: -0.6rem;
+        top: -0.7rem;
+        background-color: unset !important;
+        background-image: linear-gradient($bgColor 60%,transparent 40%);
     }
 }
 
@@ -187,6 +193,7 @@ label, input, p, span, button, div{
     display: inline-block;
     width: 22rem;
     max-width: $maxWidth;
+    border-radius: $mainRoundness;
     h1{
         margin: 1rem 0 0 0;
     }
@@ -441,7 +448,6 @@ nav {
 }
 
 .fancyShadow {
-    border-radius: 0.6rem;
     box-shadow: 0.4rem 0.2rem 0.5rem rgb(211, 211, 211), -0.4rem -0.2rem 0.8rem rgba(255, 255, 255, 1), 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
 }
 
@@ -462,16 +468,14 @@ nav {
         min-height: 10rem;
         padding: 1rem;
         background-color: $bgColorLight;
-        border-radius: 0.6rem;
+        border-radius: 1rem;
         margin-left: auto;
         margin-right: auto;
     }
     .closeIcon{
         position: absolute;
-        right: 0;
-        top: 0;
+        right: 0.2rem;
+        top: 0.2rem;
     }
-    .mainSubmit{
-        color: $fontDark;
-    }
+    
 }

@@ -36,7 +36,8 @@
         @auth
             <script>
                 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                function vote(vote){                
+                function vote(vote){
+                    const postId={{$post->id}}                
                     if(postId && token){
                         const formData=new FormData();
                         formData.append('vote', vote? 'upvote' : 'downvote');

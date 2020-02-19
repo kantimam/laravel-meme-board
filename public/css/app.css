@@ -181,13 +181,16 @@ label, input, p, span, button, div {
   transition: top 0.4s;
 }
 
-.textInputWrapper:focus-within label, .textInputWrapper label.inputFilled label {
+.textInputWrapper:focus-within label {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   margin: 0;
   top: -0.7rem;
+  background-color: unset !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #e2e2e2), color-stop(40%, transparent));
+  background-image: linear-gradient(#e2e2e2 60%, transparent 40%);
 }
 
 .textInputWrapper label.inputFilled {
@@ -196,7 +199,10 @@ label, input, p, span, button, div {
       -ms-user-select: none;
           user-select: none;
   margin: 0;
-  top: -0.6rem;
+  top: -0.7rem;
+  background-color: unset !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #e2e2e2), color-stop(40%, transparent));
+  background-image: linear-gradient(#e2e2e2 60%, transparent 40%);
 }
 
 .checkInputWrapper {
@@ -214,6 +220,7 @@ label, input, p, span, button, div {
   display: inline-block;
   width: 22rem;
   max-width: 94%;
+  border-radius: 0.4rem;
 }
 
 .logSignWrapper h1 {
@@ -479,7 +486,6 @@ nav ul {
 }
 
 .fancyShadow {
-  border-radius: 0.6rem;
   -webkit-box-shadow: 0.4rem 0.2rem 0.5rem lightgray, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
           box-shadow: 0.4rem 0.2rem 0.5rem lightgray, -0.4rem -0.2rem 0.8rem white, 1rem 1rem 1rem rgba(255, 255, 255, 0.25) inset;
 }
@@ -501,18 +507,14 @@ nav ul {
   min-height: 10rem;
   padding: 1rem;
   background-color: #f0f0f0;
-  border-radius: 0.6rem;
+  border-radius: 1rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 #alertSection .closeIcon {
   position: absolute;
-  right: 0;
-  top: 0;
-}
-
-#alertSection .mainSubmit {
-  color: black;
+  right: 0.2rem;
+  top: 0.2rem;
 }
 /*# sourceMappingURL=app.css.map */
