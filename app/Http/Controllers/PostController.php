@@ -31,6 +31,23 @@ class PostController extends Controller
         );
     }
 
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPopular()
+    {
+        //
+        $posts=Post::orderBy('rating', 'DESC')->get();
+        return view(
+            'home', 
+            [
+            'posts'=>$posts
+            ]
+        );
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -139,7 +156,7 @@ class PostController extends Controller
 
         if(!$request->has('postId')) return response("can not find post without id", 404);
 
-        if(!$request->has('vote') || ($request->vote!=1 || $request->vote!=-1)){
+        if(!$request->has('vote') || !($request->vote==1 || $request->vote==-1)){
             return response("invalid vote!", 403);
         }
 
@@ -153,24 +170,24 @@ class PostController extends Controller
                 if($vote->vote==$myVote){
                     $vote->delete();
                     $post->updateRating();
-                    return '0';
+                    return $post->rating;
                 }
                 else{
                     $vote->vote=$myVote;
                     $vote->save();
                     $post->updateRating();
-                    return $myVote;
+                    return $post->rating;
                 }
                 
             }else{
                 $newVote=new Vote();
                 $newVote->vote=$myVote;
                 $newVote->user_id=$userId;
-                $newVote->post_id=$id;
+                $newVote->post_id=$request->postId;
 
                 $newVote->save();
                 $post->updateRating();
-                return $myVote;
+                return $post->rating;
             }
         }
         catch(ModelNotFoundException $e){
@@ -179,30 +196,5 @@ class PostController extends Controller
     }
 
 
-    public function voteWithAnon(Request $request){
-        if($request->has('vote') && $request->has('postId') && $request->postId!=null){
-            if(Auth::check()){
-                /* if user is logged in vote with his useID */
-                //$vote->save();
-                return "you are logged in :)";
-            }
-            /* if not logged in vote with his sessionToken */
-            return $this->anonVote($request->postId, $request->vote, $request->session()->get('_token'));
-        }
-        return 'vote failed! :(';        
-    }
-
-    private function anonVote($postId, $inVote, $sessionToken){
-        $vote=new AnonymousVote;
-        if($vote::where('session_id', $sessionToken)->where('post_id', $postId)->first()){
-            return response("there is already a vote with this session token", 409);
-        }
-
-        $myVote=$inVote=='upvote'? 1 : -1;
-        $vote->vote=$myVote;
-        $vote->post_id=$postId;
-        $vote->session_id=$sessionToken;
-        $vote->save();
-        return "succesfully voted! :)";
-    }
+    
 }

@@ -106,7 +106,7 @@ label, input, p, span, button, div {
 
 .inner {
   margin: 0 auto;
-  width: 76rem;
+  width: 84rem;
   max-width: 94%;
 }
 
@@ -257,23 +257,33 @@ nav {
 
 nav .inner {
   height: 3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  /* display: flex;
+        align-items: center;
+        justify-content: space-between; */
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 16rem 1fr;
+      grid-template-columns: 1fr 16rem 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 nav ul {
-  width: 24rem;
+  width: 28rem;
   max-width: 100%;
   -webkit-box-pack: justify !important;
       -ms-flex-pack: justify !important;
           justify-content: space-between !important;
+}
+
+nav a {
+  padding: 0.4rem 1rem;
+}
+
+nav a.active {
+  border-bottom: 0.1rem solid #9147ff;
+  /* border-top: 0.1rem solid $mainColor; */
 }
 
 #createPostButton {
@@ -285,6 +295,7 @@ nav ul {
 }
 
 #userNav {
+  justify-self: end;
   width: 12rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -305,6 +316,28 @@ nav ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#searchForm {
+  overflow: hidden;
+  border-radius: 0.4rem;
+  border: 0.06rem solid #9147ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#searchForm input[type="text"] {
+  width: 14rem;
+  padding-left: 0.6rem;
+}
+
+#searchForm input[type="submit"] {
+  width: 2rem;
+  border: none;
 }
 
 /* end nav */
@@ -356,7 +389,8 @@ nav ul {
 
 .ratePostWrapper {
   text-align: center;
-  padding: 0.1rem 1rem;
+  padding: 0.1rem 0;
+  width: 3rem;
   border-radius: 0.2rem;
   /* border: 0.04rem solid black; */
 }

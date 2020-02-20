@@ -15,15 +15,17 @@ Auth::routes();
 
 Route::get('/', 'PostController@index');
 Route::get('/home', 'PostController@index');
+Route::get('/new', 'PostController@index');
+Route::get('/popular', 'PostController@indexPopular');
 Route::get('/upload', 'PostController@create');
 Route::get('/post/{id}', 'PostController@show');
 
 
-Route::get('/profile', 'HomeController@profile')->name('profile');
+Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');
 
 
 Route::post('/post', 'PostController@store');
-Route::post('/vote/post', 'PostController@vote');
+Route::post('/vote/post', 'PostController@vote')->middleware('auth');
 
 
 

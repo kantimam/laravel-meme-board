@@ -2,18 +2,29 @@
     <div class="inner">
         <ul class="centerAll">
             <li>
-                <a href="/">
-                    {{ config('app.name', 'Munki') }}
+                <a  href="/">
+                        {{ config('app.name', 'Munki') }}
                 </a>
             </li>
             <li>
-                <a id="createPostButton" href="/upload">NEW POST</a>
+                <a class="{{ request()->is( 'upload*' ) ? 'activeCreate' : '' }}" id="createPostButton" href="/upload">
+                    NEW POST
+                </a>
             </li>
-            <li>NEW</li>
-            <li>POPULAR</li>
+            <li>
+                <a class="{{ Request::is( 'new*' ) ||  Request::is( '/*' )? 'active' : '' }}" href="/new">
+                    NEW
+                </a>
+            </li>
+            <li>
+                <a class="{{ Request::is( 'popular*' ) ? 'active' : '' }}" href="/popular">
+                    POPULAR
+                </a>
+            </li>
         </ul>
-        <form>
-            <input placeholder="SEARCH FOR POST" class="textInput" type="text" name="" id=""/>
+        <form id="searchForm">
+            <input placeholder="SEARCH FOR POST" type="text" name="" id=""/>
+            <input type="submit" class="mainColor" value="q">
         </form>
         <div id="userNav">
             <!-- Authentication Links -->

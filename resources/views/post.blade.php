@@ -9,7 +9,7 @@
                     <div class="ratePostWrapper fancyShadow">
                         <div class="ratingWrapper">
                             <p onclick="vote(1)" class="upvote">+</p>
-                            <p class="rating">{{$post->rating}}</p>
+                            <p id="postRatingValue" class="rating">{{$post->rating}}</p>
                             <p onclick="vote(0)" class="downvote">-</p>
                         </div>
                         <div class="like">
@@ -40,7 +40,7 @@
                     const postId={{$post->id}}                
                     if(postId && token){
                         const formData=new FormData();
-                        formData.append('vote', vote? 'upvote' : 'downvote');
+                        formData.append('vote', vote? 1 : -1);
                         formData.append('postId', postId);
                         fetch(`/vote/post`, {
                             headers: {
@@ -55,12 +55,15 @@
                                 if(!response.ok) throw Error(response.statusText)
                                 return response.text();
                             })
-                            .then(data=>
-                                console.log(data)
+                            
+                            .then(data=>{
+                                if(isNaN(data)) throw Error('unexpected response');
+                                document.querySelector('#postRatingValue').innerHTML=data;
+                            }
                             )
                             .catch(e=>{
-                                window.location.href = '/login';
-
+                                console.log(e);
+                                /* window.location.href = '/'; */
                             }
                             )
                     }

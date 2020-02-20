@@ -4,7 +4,7 @@ $bgColor: rgb(226, 226, 226);
 $bgColorLight: rgb(240, 240, 240);
 $fontDark: black;
 $fontLight: white;
-$innerWidth: 76rem;
+$innerWidth: 84rem;
 $maxWidth: 94%;
 $mainFontSize: 1.2rem;
 $mainRoundness: 0.4rem;
@@ -226,18 +226,29 @@ nav {
     background-color: $bgColorLight;
     .inner {
         height: 3rem;
-        display: flex;
+        /* display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between; */
+        display: grid;
+        grid-template-columns: 1fr 16rem 1fr;
+        align-items: center;
     }
 
     ul {
-        width: 24rem;
+        width: 28rem;
         max-width: 100%;
         justify-content: space-between !important;
     }
+    a{
+        padding: 0.4rem 1rem;
+    }
+    a.active{
+        border-bottom: 0.1rem solid $mainColor;
+        /* border-top: 0.1rem solid $mainColor; */
+    }
 
 }
+
 
 #createPostButton {
     font-weight: bold;
@@ -248,6 +259,7 @@ nav {
 }
 
 #userNav {
+    justify-self: end;
     width: 12rem;
     display: flex;
     justify-content: space-between;
@@ -258,6 +270,22 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#searchForm{
+    overflow: hidden;
+    border-radius: $mainRoundness;
+    border: 0.06rem solid $mainColor;
+    display: flex;
+    justify-content: center;
+    input[type="text"]{
+        width: 14rem;
+        padding-left: 0.6rem;
+    }
+    input[type="submit"]{
+        width: 2rem;
+        border: none;
+    }
 }
 
 /* end nav */
@@ -310,7 +338,8 @@ nav {
 
 .ratePostWrapper {
     text-align: center;
-    padding: 0.1rem 1rem;
+    padding: 0.1rem 0;
+    width: 3rem;
     border-radius: 0.2rem;
     /* border: 0.04rem solid black; */
 
