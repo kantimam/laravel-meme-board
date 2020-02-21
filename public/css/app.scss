@@ -319,19 +319,21 @@ nav {
 /* display post screen */
 
 #postLayout {
+    height: 100%;
     width: 100%;
-    /* display: grid;
-    grid-template-columns: repeat(10, 1fr); */
-    display: flex;
+    display: grid;
+    grid-template-columns: 4rem auto 24rem;
 }
 
 #postOptions {
+    grid-column: 1/2;
     position: relative;
     padding-top: 4rem;
     padding-right: 1rem;
 }
 
 #postComments {
+    grid-column: 3/4;
     min-width: 26rem;
     background-color: lightpink;
 }
@@ -351,11 +353,12 @@ nav {
 }
 
 #postWrapper {
-    flex: 1;
-    /* grid-column: 1/8; */
+    grid-column: 2/3;
     min-height: 16rem;
 
     img {
+        object-fit: contain;
+        max-height: 70vh;
         width: 100%;
     }
 }

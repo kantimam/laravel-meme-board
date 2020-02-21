@@ -3,8 +3,9 @@
 
 
 @section('content')
-        <div class="inner">
+        <div class="inner fullHeight">
             <div id="postLayout">
+                {{-- interface to interact with post --}}
                 <section id="postOptions">
                     <div class="ratePostWrapper fancyShadow">
                         <div class="ratingWrapper">
@@ -17,6 +18,8 @@
                         </div>
                     </div>
                 </section>
+
+                {{-- actual image / post --}}
                 <section id="postWrapper">
                     <h1>{{$post->title}}</h1>
                     <div id="postNav">
