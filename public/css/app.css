@@ -34,8 +34,12 @@ main {
   overflow: auto;
 }
 
-.fullHeight {
+.fullMinHeight {
   min-height: 100%;
+}
+
+.fullHeight {
+  height: 100%;
 }
 
 li {
@@ -253,6 +257,9 @@ label, input, p, span, button, div {
 /* nav */
 nav {
   background-color: #f0f0f0;
+  /* #navLogo{
+        padding-left: 0;
+    } */
 }
 
 nav .inner {
@@ -368,27 +375,32 @@ nav a.active {
 /* end index */
 /* display post screen */
 #postLayout {
+  /* overflow: hidden; */
   height: 100%;
   width: 100%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 4rem auto 24rem;
-      grid-template-columns: 4rem auto 24rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
 }
 
-#postOptions {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
+#postOptionsFixed {
+  position: fixed;
+  margin-left: 0;
+}
+
+#postOptionsWrapper {
   position: relative;
   padding-top: 4rem;
   padding-right: 1rem;
 }
 
+#postFeed {
+  min-width: 24rem;
+  background-color: lightpink;
+}
+
 #postComments {
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 1;
-  grid-column: 3/4;
   min-width: 26rem;
   background-color: lightpink;
 }
@@ -408,16 +420,18 @@ nav a.active {
 }
 
 #postWrapper {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
+  margin-left: 4rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   min-height: 16rem;
+  /* overflow: hidden auto; */
 }
 
 #postWrapper img {
   -o-object-fit: contain;
      object-fit: contain;
-  max-height: 70vh;
+  /* max-height: 70vh; */
   width: 100%;
 }
 

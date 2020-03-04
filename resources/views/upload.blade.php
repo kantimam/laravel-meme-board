@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <div class="centerAll flexContent fullHeight">
+    <div class="centerAll flexContent fullMinHeight">
         <form id="uploadForm" action="/post" method="POST" enctype="multipart/form-data" class="flexCenterAllVert fancyShadow">
             <input accept="image/" type="file" name="image" id="file">
             

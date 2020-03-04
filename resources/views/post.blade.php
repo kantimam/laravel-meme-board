@@ -6,15 +6,17 @@
         <div class="inner fullHeight">
             <div id="postLayout">
                 {{-- interface to interact with post --}}
-                <section id="postOptions">
-                    <div class="ratePostWrapper fancyShadow">
-                        <div class="ratingWrapper">
-                            <p onclick="vote(1)" class="upvote">+</p>
-                            <p id="postRatingValue" class="rating">{{$post->rating}}</p>
-                            <p onclick="vote(0)" class="downvote">-</p>
-                        </div>
-                        <div class="like">
-                            
+                <section id="postOptionsFixed">
+                    <div id="postOptionsWrapper">
+                        <div class="ratePostWrapper fancyShadow">
+                            <div class="ratingWrapper">
+                                <p onclick="vote(1)" class="upvote">+</p>
+                                <p id="postRatingValue" class="rating">{{$post->rating}}</p>
+                                <p onclick="vote(0)" class="downvote">-</p>
+                            </div>
+                            <div class="like">
+                                
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -32,7 +34,7 @@
                     </div>
                     <img src={{"/".$post->file}} alt="thumbnail">
                 </section>
-                <section id="postComments"></section>
+                <section id="postFeed"></section>
             </div>
             
         </div>

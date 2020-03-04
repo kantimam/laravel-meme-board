@@ -2,7 +2,7 @@
     <div class="inner">
         <ul class="centerAll">
             <li>
-                <a  href="/">
+                <a id="navLogo"  href="/">
                         {{ config('app.name', 'Munki') }}
                 </a>
             </li>

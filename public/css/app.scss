@@ -39,8 +39,11 @@ main {
     overflow: auto;
 }
 
-.fullHeight {
+.fullMinHeight {
     min-height: 100%;
+}
+.fullHeight {
+    height: 100%;
 }
 
 li {
@@ -242,6 +245,9 @@ nav {
     a{
         padding: 0.4rem 1rem;
     }
+    /* #navLogo{
+        padding-left: 0;
+    } */
     a.active{
         border-bottom: 0.1rem solid $mainColor;
         /* border-top: 0.1rem solid $mainColor; */
@@ -319,21 +325,29 @@ nav {
 /* display post screen */
 
 #postLayout {
+    /* overflow: hidden; */
     height: 100%;
     width: 100%;
-    display: grid;
-    grid-template-columns: 4rem auto 24rem;
+    display: flex;
+    position: relative;
+}
+#postOptionsFixed{
+    position: fixed;
+    margin-left: 0;
 }
 
-#postOptions {
-    grid-column: 1/2;
+#postOptionsWrapper {
     position: relative;
     padding-top: 4rem;
     padding-right: 1rem;
 }
 
+#postFeed {
+    min-width: 24rem;
+    background-color: lightpink;
+}
+
 #postComments {
-    grid-column: 3/4;
     min-width: 26rem;
     background-color: lightpink;
 }
@@ -353,12 +367,13 @@ nav {
 }
 
 #postWrapper {
-    grid-column: 2/3;
+    margin-left: 4rem;
+    flex: 1;
     min-height: 16rem;
-
+    /* overflow: hidden auto; */
     img {
         object-fit: contain;
-        max-height: 70vh;
+        /* max-height: 70vh; */
         width: 100%;
     }
 }
