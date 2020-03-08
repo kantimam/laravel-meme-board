@@ -129,6 +129,47 @@ class PostController extends Controller
         }
     }
 
+
+        /**
+     * Display the specified resource with preview.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showWithPreview($id)
+    {
+        try{
+            $post=Post::findOrFail($id);
+            $post->increment("views");
+            $post->save();
+
+            if(Auth::check()){
+                /* if user is logged in figure out if he voted and what his vote is  */
+                $userVote=0;
+                $userId=Auth::id();
+                $vote=$post->votes()->where('user_id', $userId)->first();
+
+                if($vote){
+                    $userVote=$vote->vote;
+                }
+                $post['vote']=$userVote;
+
+            }
+
+            $nextPosts=Post::where('id', '>', $post->id)->take(10)->select('id', 'thumbnail')->get();
+
+            $prevPosts=Post::where('id', '<', $post->id)->take(2)->select('id', 'thumbnail')->get();
+
+            
+
+            //return ['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts];
+            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts]);
+
+        }catch(Exeption $e){
+            return redirect('/');
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -187,7 +228,6 @@ class PostController extends Controller
                 if($vote->vote==$myVote){
                     $vote->delete();
                     $post->updateRating();
-                    $myVote=0;
                     return ["rating"=> $post->rating, "vote"=> 0];
                 }
                 else{

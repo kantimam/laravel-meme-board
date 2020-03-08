@@ -34,7 +34,31 @@
                     </div>
                     <img src={{"/".$post->file}} alt="thumbnail">
                 </section>
-                <section id="postFeed"></section>
+                <section id="postFeed" class="fancyShadow">
+                    <div class="previewHeader centerAll">
+                        POST FEED
+                    </div>
+                    <div class="postPreviewList">
+                        @forelse ($prevPosts as $item)
+                        <a href={{"/post/".$item->id}}>
+                            <img src={{"/".$item->thumbnail}} alt="thumbnail">
+                        </a>
+                        @empty
+                            <div class="postPreviewEmpty centerAll">NULL</div>
+                        @endforelse
+                        <a href={{"/post/".$post->id}}></a>
+                            <a href={{"/post/".$post->id}}>
+                                <img src={{"/".$post->thumbnail}} alt="thumbnail">
+                            </a>    
+                        @forelse ($nextPosts as $item)
+                            <a href={{"/post/".$item->id}}>
+                                <img src={{"/".$item->thumbnail}} alt="thumbnail">
+                            </a>
+                        @empty
+                            <div class="postPreviewEmpty centerAll">NULL</div>
+                        @endforelse
+                    </div>
+                </section>
             </div>
             
         </div>

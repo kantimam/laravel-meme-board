@@ -376,12 +376,17 @@ nav a.active {
 /* display post screen */
 #postLayout {
   /* overflow: hidden; */
+  margin-top: 1rem;
   height: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+}
+
+h1 {
+  margin: 0 0 1rem 0;
 }
 
 #postOptionsFixed {
@@ -396,8 +401,28 @@ nav a.active {
 }
 
 #postFeed {
-  min-width: 24rem;
-  background-color: lightpink;
+  padding: 0.2rem;
+  border-radius: 0.3rem;
+  margin-left: 0.6rem;
+  width: 14rem;
+}
+
+#postFeed .postPreviewList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#postFeed .postPreviewList img {
+  border-radius: 0.3rem;
+  width: 100%;
+  height: 8rem;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #postComments {

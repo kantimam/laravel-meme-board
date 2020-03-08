@@ -19,7 +19,7 @@ Route::get('/home', 'PostController@index');
 Route::get('/new', 'PostController@index');
 Route::get('/popular', 'PostController@indexPopular');
 Route::get('/upload', 'PostController@create');
-Route::get('/post/{id}', 'PostController@show');
+Route::get('/post/{id}', 'PostController@showWithPreview');
 
 
 Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');

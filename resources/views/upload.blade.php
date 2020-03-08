@@ -42,7 +42,5 @@
     </script>
 
     <script src="{{ asset('js/dragDrop.js') }}">
-        
-
     </script>  
 @endsection
