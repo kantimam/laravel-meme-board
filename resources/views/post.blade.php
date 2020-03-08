@@ -10,9 +10,9 @@
                     <div id="postOptionsWrapper">
                         <div class="ratePostWrapper fancyShadow">
                             <div class="ratingWrapper">
-                                <p onclick="vote(1)" class="upvote">+</p>
+                                <p onclick="vote(1)" class="{{ $post->vote == 1? 'upvoteActive upvote' : 'upvote' }}" >+</p>
                                 <p id="postRatingValue" class="rating">{{$post->rating}}</p>
-                                <p onclick="vote(0)" class="downvote">-</p>
+                                <p onclick="vote(0)" class="{{ $post->vote == -1? 'downvoteActive downvote' : 'downvote' }}" >-</p>
                             </div>
                             <div class="like">
                                 

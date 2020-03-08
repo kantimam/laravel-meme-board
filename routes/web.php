@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+
 Route::get('/', 'PostController@index');
 Route::get('/home', 'PostController@index');
 Route::get('/new', 'PostController@index');

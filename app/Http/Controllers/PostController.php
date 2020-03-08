@@ -107,6 +107,21 @@ class PostController extends Controller
         try{
             $post=Post::findOrFail($id);
             $post->increment("views");
+            $post->save();
+
+            if(Auth::check()){
+                /* if user is logged in figure out if he voted and what his vote is  */
+                $userVote=0;
+                $userId=Auth::id();
+                $vote=$post->votes()->where('user_id', $userId)->first();
+
+                if($vote){
+                    $userVote=$vote->vote;
+                }
+                $post['vote']=$userVote;
+
+            }
+            
 
             return view('post',['post'=>$post]);
         }catch(Exeption $e){
