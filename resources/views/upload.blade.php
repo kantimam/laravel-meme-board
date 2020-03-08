@@ -27,8 +27,8 @@
             </div>
 
             <div class="textInputWrapper">
-                <label for="email">{{ __('E-Mail Address') }}</label>
-                <input class="textInput" id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <label for="postTitle">{{ __('Post Title') }}</label>
+                <input class="textInput" id="postTitle" type="text" name="title" autofocus>
             </div>
             <input placeholder="add a few tags seperated by ," class="textInput" type="text" name="tags">
 

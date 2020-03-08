@@ -10,9 +10,9 @@
                     <div id="postOptionsWrapper">
                         <div class="ratePostWrapper fancyShadow">
                             <div class="ratingWrapper">
-                                <p onclick="vote(1)" class="{{ $post->vote == 1? 'upvoteActive upvote' : 'upvote' }}" >+</p>
+                                <p onclick="vote(1)" id="upvoteButton" class="upvote centerAll {{ $post->vote == 1? 'upvoteActive' : '' }}" >+</p>
                                 <p id="postRatingValue" class="rating">{{$post->rating}}</p>
-                                <p onclick="vote(0)" class="{{ $post->vote == -1? 'downvoteActive downvote' : 'downvote' }}" >-</p>
+                                <p onclick="vote(0)"  id="downvoteButton" class="downvote centerAll {{ $post->vote == -1? 'downvoteActive' : '' }}" >-</p>
                             </div>
                             <div class="like">
                                 
@@ -41,6 +41,7 @@
         @auth
             <script>
                 const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
                 function vote(vote){
                     const postId={{$post->id}}                
                     if(postId && token){
@@ -58,12 +59,23 @@
                             })
                             .then(response=>{
                                 if(!response.ok) throw Error(response.statusText)
-                                return response.text();
+                                return response.json();
                             })
                             
                             .then(data=>{
-                                if(isNaN(data)) throw Error('unexpected response');
-                                document.querySelector('#postRatingValue').innerHTML=data;
+                                if(isNaN(data.vote) || isNaN(data.rating)) throw Error('unexpected response');
+                                document.querySelector('#postRatingValue').innerHTML=data.rating;
+                                
+                                const upvote=document.querySelector('#upvoteButton');
+                                const downvote=document.querySelector('#downvoteButton');
+                                upvote.classList.remove('upvoteActive');
+                                downvote.classList.remove('downvoteActive');
+
+                                if(data.vote==-1){
+                                    downvote.classList.add('downvoteActive');
+                                }else if(data.vote==1){
+                                    upvote.classList.add('upvoteActive');
+                                }
                             }
                             )
                             .catch(e=>{

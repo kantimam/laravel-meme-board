@@ -181,17 +181,20 @@ class PostController extends Controller
             $myVote=$request->vote;
 
             $vote=$post->votes()->where('user_id',$userId)->first();
+
+            
             if($vote){
                 if($vote->vote==$myVote){
                     $vote->delete();
                     $post->updateRating();
-                    return $post->rating;
+                    $myVote=0;
+                    return ["rating"=> $post->rating, "vote"=> 0];
                 }
                 else{
                     $vote->vote=$myVote;
                     $vote->save();
                     $post->updateRating();
-                    return $post->rating;
+                    return ["rating"=> $post->rating, "vote"=> $myVote];
                 }
                 
             }else{
@@ -202,7 +205,7 @@ class PostController extends Controller
 
                 $newVote->save();
                 $post->updateRating();
-                return $post->rating;
+                return ["rating"=> $post->rating, "vote"=> $myVote];
             }
         }
         catch(ModelNotFoundException $e){

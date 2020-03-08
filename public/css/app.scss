@@ -364,6 +364,18 @@ nav {
         margin: 0.6rem 0.1rem;
         font-weight: bold;
     }
+    .upvote, .downvote{
+        margin: 0 auto;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 2rem;
+        border: 1px solid transparent;
+    }
+    .upvoteActive, .downvoteActive{
+        color: $mainColor;
+        border: 1px solid $mainColor;
+    }
+
 }
 
 #postWrapper {
