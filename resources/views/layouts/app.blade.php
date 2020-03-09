@@ -27,7 +27,7 @@
                 <h1 class="textUpper" id="alertSectionTitle">
                    YOU NEED TO BE LOGGED IN 
                 </h1> 
-                <a href="/login" class="mainSubmit mainColor">LOGIN</a>
+                <a href="/loginwithback" class="mainSubmit mainColor">LOGIN</a>
             </div>
         </section>
         @yield('content')

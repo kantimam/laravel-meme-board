@@ -13,7 +13,6 @@
 
 Auth::routes();
 
-
 Route::get('/', 'PostController@index');
 Route::get('/home', 'PostController@index');
 Route::get('/new', 'PostController@index');
@@ -23,6 +22,9 @@ Route::get('/post/{id}', 'PostController@showWithPreview');
 
 
 Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');
+
+Route::post('/loginwithback', 'Auth\LoginWithBackController@login')->name('loginwithback');
+Route::get('/loginwithback', 'Auth\LoginWithBackController@showLoginForm');
 
 
 Route::post('/post', 'PostController@store');
