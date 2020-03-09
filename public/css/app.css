@@ -376,7 +376,7 @@ nav a.active {
 /* display post screen */
 #postLayout {
   /* overflow: hidden; */
-  margin-top: 1rem;
+  padding-top: 1rem;
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -401,6 +401,9 @@ h1 {
 }
 
 #postFeed {
+  overflow: auto;
+  height: 80rem;
+  max-height: 98%;
   padding: 0.2rem;
   border-radius: 0.3rem;
   margin-left: 0.6rem;
