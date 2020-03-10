@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -38,14 +39,16 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function sendLoginResponse(Request $request)
+
+    public function logout(Request $request)
     {
-        $request->session()->regenerate();
+        $this->guard()->logout();
 
-        $this->clearLoginAttempts($request);
+        $request->session()->invalidate();
 
-        return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
+        $request->session()->regenerateToken();
+
+        return $this->loggedOut($request);
     }
 
 }

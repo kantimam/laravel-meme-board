@@ -23,8 +23,8 @@ Route::get('/post/{id}', 'PostController@showWithPreview');
 
 Route::get('/profile', 'HomeController@profile')->name('profile')->middleware('auth');
 
-Route::post('/loginwithback', 'Auth\LoginWithBackController@login')->name('loginwithback');
-Route::get('/loginwithback', 'Auth\LoginWithBackController@showLoginForm');
+/* Route::post('/loginwithback', 'Auth\LoginWithBackController@login')->name('loginwithback');
+Route::get('/loginwithback', 'Auth\LoginWithBackController@showLoginForm'); */
 
 
 Route::post('/post', 'PostController@store');

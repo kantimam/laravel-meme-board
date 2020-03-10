@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -38,6 +39,30 @@ class LoginWithBackController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+    
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    /* protected function asendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->back();
+    } */
+
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     protected function sendLoginResponse(Request $request)
     {
         $request->session()->regenerate();
@@ -45,7 +70,19 @@ class LoginWithBackController extends Controller
         $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
+                ?  : redirect()->intended(session('link'));
+    }
+
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        session(['link' => url()->previous()]);
+        return view('auth.login')->with('goBack', true);
     }
 
 
