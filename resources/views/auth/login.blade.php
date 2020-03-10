@@ -4,7 +4,7 @@
 <div class="inner centerText">
     <div class="margin0Auto logSignWrapper fancyShadow">
         <h1>LogIn</h1>
-        <form method="POST" class="mainForm" action="{{isset($goBack)? route('loginwithback') : route('login')}}">
+        <form method="POST" class="mainForm" action="{{route('login')}}">
             @csrf
 
             <div class="textInputWrapper">

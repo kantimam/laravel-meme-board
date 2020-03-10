@@ -48,7 +48,35 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return $this->loggedOut($request);
+        return $this->loggedOut($request)?  : redirect()->intended(url()->previous());
+    }
+
+        /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+                ?  : redirect()->intended(session('link'));
+    }
+
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        session(['link' => url()->previous()]);
+        return view('auth.login');
     }
 
 }
