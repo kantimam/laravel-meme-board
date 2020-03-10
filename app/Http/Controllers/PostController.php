@@ -167,7 +167,7 @@ class PostController extends Controller
             
 
             //return ['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts];
-            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts]);
+            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts, 'feed'=>'new']);
 
         }catch(Exeption $e){
             return redirect('/');
@@ -200,14 +200,14 @@ class PostController extends Controller
 
             }
 
-            $nextPosts=Post::where('id', '>', $post->id)->take(10)->select('id', 'thumbnail')->get();
+            $nextPosts=Post::where('rating', '>', $post->rating)->orderBy('rating', 'ASC')->take(10)->select('id', 'thumbnail')->get();
 
-            $prevPosts=Post::where('id', '<', $post->id)->take(2)->select('id', 'thumbnail')->get();
+            $prevPosts=Post::where('rating', '<', $post->rating)->orderBy('rating', 'DESC')->take(2)->select('id', 'thumbnail')->get();
 
             
 
             //return ['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts];
-            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts]);
+            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts, 'feed'=>'popular']);
 
         }catch(Exeption $e){
             return redirect('/');
