@@ -33,6 +33,7 @@
                         </div>
                     </div>
                     <img src={{"/".$post->file}} alt="thumbnail">
+                    @include('components.commentSection', ['comments'=>[1,2,3]])
                 </section>
                 <section id="postFeed" class="fancyShadow">
                     <div class="previewHeader centerAll">

@@ -297,6 +297,8 @@ class PostController extends Controller
         }
     }
 
-
+    public function comment(Request $request){
+        return $request;
+    }
     
 }

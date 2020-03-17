@@ -30,6 +30,7 @@ Route::get('/loginwithback', 'Auth\LoginWithBackController@showLoginForm'); */
 Route::post('/post', 'PostController@store');
 Route::post('/vote/post', 'PostController@vote')->middleware('auth');
 
+Route::post('/comment', 'PostController@comment');
 
 
 

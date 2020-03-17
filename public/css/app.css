@@ -437,9 +437,31 @@ h1 {
   border: 0.3rem solid #9147ff;
 }
 
-#postComments {
-  min-width: 26rem;
-  background-color: lightpink;
+/* #postComments {
+    min-width: 26rem;
+    background-color: lightpink;
+} */
+#commentSection {
+  padding: 4rem 0;
+}
+
+#commentSection #commentFormText {
+  width: 100%;
+}
+
+#commentSection h3 {
+  margin: 0.4rem 0;
+}
+
+#commentSection .commentItem {
+  margin: 0.4rem 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  background-color: #f0f0f0;
+}
+
+#commentSection .commentItem .commentBody {
+  min-height: 3rem;
 }
 
 .ratePostWrapper {

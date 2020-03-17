@@ -394,15 +394,34 @@ h1 {
         .active {
             img {
                 border: 0.3rem solid $mainColor;
-
             }
         }
     }
 }
 
-#postComments {
+/* #postComments {
     min-width: 26rem;
     background-color: lightpink;
+} */
+
+#commentSection {
+    padding: 4rem 0;
+    #commentFormText{
+        width: 100%;
+    }
+    h3{
+        margin: 0.4rem 0;
+    }
+    .commentItem{
+        margin: 0.4rem 0;
+        padding: 0.2rem 0.6rem;
+        border-radius: $mainRoundness;
+        background-color: $bgColorLight;
+        .commentBody{
+            min-height: 3rem;
+
+        }
+    }
 }
 
 .ratePostWrapper {
