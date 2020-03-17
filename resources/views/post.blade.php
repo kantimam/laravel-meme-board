@@ -46,8 +46,7 @@
                         @empty
                             <div class="postPreviewEmpty centerAll">NULL</div>
                         @endforelse
-                        <a href={{"/post/".$post->id}}></a>
-                            <a href={{"/post/".$post->id}}>
+                            <a class="active"  href={{"/post/".$post->id}}>
                                 <img src={{"/".$post->thumbnail}} alt="thumbnail">
                             </a>    
                         @forelse ($nextPosts as $item)

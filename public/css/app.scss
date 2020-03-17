@@ -42,6 +42,7 @@ main {
 .fullMinHeight {
     min-height: 100%;
 }
+
 .fullHeight {
     height: 100%;
 }
@@ -59,7 +60,13 @@ ul {
     margin: 0;
     padding: 0;
 }
-label, input, p, span, button, div{
+
+label,
+input,
+p,
+span,
+button,
+div {
     font-size: $mainFontSize;
 }
 
@@ -79,7 +86,8 @@ label, input, p, span, button, div{
 .centerText {
     text-align: center;
 }
-.textUpper{
+
+.textUpper {
     text-transform: uppercase;
 }
 
@@ -90,9 +98,11 @@ label, input, p, span, button, div{
 .pointer {
     cursor: pointer;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
+
 .inner {
     margin: 0 auto;
     width: $innerWidth;
@@ -115,7 +125,7 @@ label, input, p, span, button, div{
 .mainColor {
     color: $bgColor;
     background-color: $mainColor;
-    
+
 }
 
 
@@ -134,7 +144,8 @@ label, input, p, span, button, div{
     display: block;
     padding: 0.4rem 3rem;
     transition: 0.5s;
-    &:hover{
+
+    &:hover {
         transform: scale(1.05);
     }
 }
@@ -142,13 +153,15 @@ label, input, p, span, button, div{
 .textInputWrapper {
     position: relative;
     text-align: left;
-    input{
+
+    input {
         background-color: $bgColor;
         border: 0.05rem solid $secondaryColor;
         outline: none;
         width: 100%;
     }
-    label{
+
+    label {
         cursor: text;
         display: flex;
         align-items: center;
@@ -161,26 +174,28 @@ label, input, p, span, button, div{
         text-align: left;
         transition: top 0.4s;
     }
-    &:focus-within{
-        label{
+
+    &:focus-within {
+        label {
             user-select: none;
             margin: 0;
             top: -0.7rem;
             background-color: unset !important;
-            background-image: linear-gradient($bgColor 60%,transparent 40%);
+            background-image: linear-gradient($bgColor 60%, transparent 40%);
 
         }
     }
-    label.inputFilled{
+
+    label.inputFilled {
         user-select: none;
         margin: 0;
         top: -0.7rem;
         background-color: unset !important;
-        background-image: linear-gradient($bgColor 60%,transparent 40%);
+        background-image: linear-gradient($bgColor 60%, transparent 40%);
     }
 }
 
-.checkInputWrapper{
+.checkInputWrapper {
     text-align: left;
 }
 
@@ -197,24 +212,27 @@ label, input, p, span, button, div{
     width: 22rem;
     max-width: $maxWidth;
     border-radius: $mainRoundness;
-    h1{
+
+    h1 {
         margin: 1rem 0 0 0;
     }
 
-    .textInputWrapper{
+    .textInputWrapper {
         margin: 1.2rem auto 0 auto;
     }
-    button{
+
+    button {
         margin: 1.4rem auto 0 auto;
     }
-    
+
 }
 
-#rememberForgotPasswordWrapper{
+#rememberForgotPasswordWrapper {
     margin-top: 0.4rem;
     display: flex;
     justify-content: space-between;
-    *{
+
+    * {
         font-size: 1rem;
     }
 
@@ -227,6 +245,7 @@ label, input, p, span, button, div{
 
 nav {
     background-color: $bgColorLight;
+
     .inner {
         height: 3rem;
         /* display: flex;
@@ -242,13 +261,15 @@ nav {
         max-width: 100%;
         justify-content: space-between !important;
     }
-    a{
+
+    a {
         padding: 0.4rem 1rem;
     }
+
     /* #navLogo{
         padding-left: 0;
     } */
-    a.active{
+    a.active {
         border-bottom: 0.1rem solid $mainColor;
         /* border-top: 0.1rem solid $mainColor; */
     }
@@ -278,17 +299,19 @@ nav {
     align-items: center;
 }
 
-#searchForm{
+#searchForm {
     overflow: hidden;
     border-radius: $mainRoundness;
     border: 0.06rem solid $mainColor;
     display: flex;
     justify-content: center;
-    input[type="text"]{
+
+    input[type="text"] {
         width: 14rem;
         padding-left: 0.6rem;
     }
-    input[type="submit"]{
+
+    input[type="submit"] {
         width: 2rem;
         border: none;
     }
@@ -332,10 +355,12 @@ nav {
     display: flex;
     position: relative;
 }
-h1{
+
+h1 {
     margin: 0 0 1rem 0;
 }
-#postOptionsFixed{
+
+#postOptionsFixed {
     position: fixed;
     margin-left: 0;
 }
@@ -354,14 +379,23 @@ h1{
     border-radius: 0.3rem;
     margin-left: 0.6rem;
     width: 14rem;
-    .postPreviewList{
+
+    .postPreviewList {
         display: flex;
         flex-direction: column;
-        img{
+
+        img {
             border-radius: 0.3rem;
             width: 100%;
             height: 8rem;
             object-fit: cover;
+        }
+
+        .active {
+            img {
+                border: 0.3rem solid $mainColor;
+
+            }
         }
     }
 }
@@ -378,19 +412,24 @@ h1{
     border-radius: 0.2rem;
     /* border: 0.04rem solid black; */
 
-    p, a {
+    p,
+    a {
         font-size: 1.4rem;
         margin: 0.6rem 0.1rem;
         font-weight: bold;
     }
-    .upvote, .downvote{
+
+    .upvote,
+    .downvote {
         margin: 0 auto;
         height: 2rem;
         width: 2rem;
         border-radius: 2rem;
         border: 1px solid transparent;
     }
-    .upvoteActive, .downvoteActive{
+
+    .upvoteActive,
+    .downvoteActive {
         color: $mainColor;
         border: 1px solid $mainColor;
     }
@@ -401,10 +440,11 @@ h1{
     margin-left: 4rem;
     flex: 1;
     min-height: 16rem;
+
     /* overflow: hidden auto; */
     img {
         object-fit: contain;
-        /* max-height: 70vh; */
+        max-height: 80vh;
         width: 100%;
     }
 }
@@ -505,7 +545,11 @@ h1{
 }
 
 #uploadInfo {
-    * {color: black};
+    * {
+        color: black
+    }
+
+    ;
     border-radius: 5rem;
     padding: 1rem;
     font-size: 1.4rem;
@@ -530,7 +574,7 @@ h1{
 }
 
 
-#alertSection{
+#alertSection {
     z-index: 4;
     position: absolute;
     left: 0;
@@ -538,8 +582,8 @@ h1{
     min-height: 10rem;
     width: 100%;
     padding: 1rem 0;
-    
-    .alertWrapper{
+
+    .alertWrapper {
         position: relative;
         width: 32rem;
         max-width: $maxWidth;
@@ -550,10 +594,11 @@ h1{
         margin-left: auto;
         margin-right: auto;
     }
-    .closeIcon{
+
+    .closeIcon {
         position: absolute;
         right: 0.2rem;
         top: 0.2rem;
     }
-    
+
 }

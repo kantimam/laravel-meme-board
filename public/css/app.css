@@ -56,7 +56,12 @@ ul {
   padding: 0;
 }
 
-label, input, p, span, button, div {
+label,
+input,
+p,
+span,
+button,
+div {
   font-size: 1.2rem;
 }
 
@@ -428,6 +433,10 @@ h1 {
      object-fit: cover;
 }
 
+#postFeed .postPreviewList .active img {
+  border: 0.3rem solid #9147ff;
+}
+
 #postComments {
   min-width: 26rem;
   background-color: lightpink;
@@ -441,13 +450,15 @@ h1 {
   /* border: 0.04rem solid black; */
 }
 
-.ratePostWrapper p, .ratePostWrapper a {
+.ratePostWrapper p,
+.ratePostWrapper a {
   font-size: 1.4rem;
   margin: 0.6rem 0.1rem;
   font-weight: bold;
 }
 
-.ratePostWrapper .upvote, .ratePostWrapper .downvote {
+.ratePostWrapper .upvote,
+.ratePostWrapper .downvote {
   margin: 0 auto;
   height: 2rem;
   width: 2rem;
@@ -455,7 +466,8 @@ h1 {
   border: 1px solid transparent;
 }
 
-.ratePostWrapper .upvoteActive, .ratePostWrapper .downvoteActive {
+.ratePostWrapper .upvoteActive,
+.ratePostWrapper .downvoteActive {
   color: #9147ff;
   border: 1px solid #9147ff;
 }
@@ -472,7 +484,7 @@ h1 {
 #postWrapper img {
   -o-object-fit: contain;
      object-fit: contain;
-  /* max-height: 70vh; */
+  max-height: 80vh;
   width: 100%;
 }
 
