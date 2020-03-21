@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts=Post::orderBy('created_at', 'DESC')->get();
+        $posts=Post::orderByDesc('created_at')->get();
         return view(
             'home', 
             [
@@ -160,14 +160,13 @@ class PostController extends Controller
 
             }
 
-            $nextPosts=Post::where('id', '>', $post->id)->take(10)->select('id', 'thumbnail')->get();
+            $olderPosts=Post::where('created_at', '<', $post->created_at)->orderByDesc('created_at')->take(10)->select('id', 'thumbnail')->get();
 
-            $prevPosts=Post::where('id', '<', $post->id)->take(2)->select('id', 'thumbnail')->get();
+            $newerPosts=Post::where('created_at', '>', $post->created_at)->take(2)->select('id', 'thumbnail')->get();
 
-            
 
             //return ['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts];
-            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts, 'feed'=>'new']);
+            return view('post',['post'=>$post, 'nextPosts'=>$olderPosts, 'prevPosts'=>$newerPosts->reverse(), 'feed'=>'new']);
 
         }catch(Exeption $e){
             return redirect('/');
@@ -200,14 +199,14 @@ class PostController extends Controller
 
             }
 
-            $nextPosts=Post::where('rating', '>', $post->rating)->orderBy('rating', 'ASC')->take(10)->select('id', 'thumbnail')->get();
+            $lowerRatedPosts=Post::where('rating', '<', $post->rating)->orderByDesc('rating')->take(10)->select('id', 'thumbnail')->get();
 
-            $prevPosts=Post::where('rating', '<', $post->rating)->orderBy('rating', 'DESC')->take(2)->select('id', 'thumbnail')->get();
+            $higherRatedPosts=Post::where('rating', '>', $post->rating)->orderBy('rating')->take(2)->select('id', 'thumbnail')->get();
 
             
 
             //return ['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts];
-            return view('post',['post'=>$post, 'nextPosts'=>$nextPosts, 'prevPosts'=>$prevPosts, 'feed'=>'popular']);
+            return view('post',['post'=>$post, 'nextPosts'=>$lowerRatedPosts, 'prevPosts'=>$higherRatedPosts, 'feed'=>'popular']);
 
         }catch(Exeption $e){
             return redirect('/');
