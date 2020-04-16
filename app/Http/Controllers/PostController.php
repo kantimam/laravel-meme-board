@@ -199,7 +199,7 @@ class PostController extends Controller
 
             }
 
-            $lowerRatedPosts=Post::where('rating', '<', $post->rating)->orderByDesc('rating')->take(10)->select('id', 'thumbnail')->get();
+            $lowerRatedPosts=Post::where('rating', '<=', $post->rating)->where('id', '!=', $post->id)->orderByDesc('rating')->take(10)->select('id', 'thumbnail')->get();
 
             $higherRatedPosts=Post::where('rating', '>', $post->rating)->orderBy('rating')->take(2)->select('id', 'thumbnail')->get();
 
