@@ -22,10 +22,7 @@
                 </a>
             </li>
         </ul>
-        <form id="searchForm">
-            <input placeholder="SEARCH FOR POST" type="text" name="" id=""/>
-            <input type="submit" class="mainColor" value="q">
-        </form>
+        @include('components.searchBar')
         <div id="userNav">
             <!-- Authentication Links -->
             @guest

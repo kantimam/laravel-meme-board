@@ -330,26 +330,57 @@ nav a.active {
           align-items: center;
 }
 
-#searchForm {
-  overflow: hidden;
-  border-radius: 0.4rem;
-  border: 0.06rem solid #9147ff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+/* #searchForm {
+    overflow: hidden;
+    border-radius: $mainRoundness;
+    border: 0.06rem solid $mainColor;
+    display: flex;
+    justify-content: center;
+
+    input[type="text"] {
+        width: 14rem;
+        padding-left: 0.6rem;
+    }
+
+    input[type="submit"] {
+        width: 2rem;
+        border: none;
+    }
+} */
+#searchForm #autoComplete {
+  font-size: 1.2rem;
+  height: 2rem;
+  max-width: 100%;
+  border-color: #9147ff;
+  color: black !important;
+  caret-color: black !important;
 }
 
-#searchForm input[type="text"] {
-  width: 14rem;
-  padding-left: 0.6rem;
+#searchForm #autoComplete:focus, #searchForm #autoComplete:hover {
+  height: 2rem;
+  padding: 0 1rem 0 2rem;
+  background-size: 1.4rem;
+  background-position: left 0.4rem top 0.3rem;
 }
 
-#searchForm input[type="submit"] {
-  width: 2rem;
-  border: none;
+#searchForm #autoComplete:focus::-webkit-input-placeholder, #searchForm #autoComplete:hover::-webkit-input-placeholder {
+  color: black !important;
+  opacity: 0.8;
+}
+
+#searchForm #autoComplete:focus:-ms-input-placeholder, #searchForm #autoComplete:hover:-ms-input-placeholder {
+  color: black !important;
+  opacity: 0.8;
+}
+
+#searchForm #autoComplete:focus::-ms-input-placeholder, #searchForm #autoComplete:hover::-ms-input-placeholder {
+  color: black !important;
+  opacity: 0.8;
+}
+
+#searchForm #autoComplete:focus::placeholder, #searchForm #autoComplete:hover::placeholder {
+  color: black !important;
+  opacity: 0.8;
 }
 
 /* end nav */

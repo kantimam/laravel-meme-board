@@ -299,7 +299,7 @@ nav {
     align-items: center;
 }
 
-#searchForm {
+/* #searchForm {
     overflow: hidden;
     border-radius: $mainRoundness;
     border: 0.06rem solid $mainColor;
@@ -315,6 +315,28 @@ nav {
         width: 2rem;
         border: none;
     }
+} */
+
+#searchForm{
+    #autoComplete{
+        font-size: $mainFontSize;
+        height: 2rem;
+        max-width: 100%;
+        border-color: $mainColor;
+        color: $fontDark !important;
+        caret-color: $fontDark !important;
+        &:focus, &:hover{
+            height: 2rem;
+            padding: 0 1rem 0 2rem;
+            background-size: 1.4rem;
+            background-position: left 0.4rem top 0.3rem;
+            &::placeholder{
+                color: $fontDark !important;
+                opacity: 0.8;
+            }
+        }
+    }
+
 }
 
 /* end nav */
