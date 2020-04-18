@@ -6,7 +6,7 @@
                         {{ config('app.name', 'Munki') }}
                 </a>
             </li>
-            <li>
+            <li class="newPost">
                 <a class="{{ request()->is( 'upload*' ) ? 'activeCreate' : '' }}" id="createPostButton" href="/upload">
                     NEW POST
                 </a>

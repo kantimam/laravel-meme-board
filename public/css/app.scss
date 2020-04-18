@@ -248,18 +248,19 @@ nav {
 
     .inner {
         height: 3rem;
-        /* display: flex;
+        display: flex;
         align-items: center;
-        justify-content: space-between; */
-        display: grid;
-        grid-template-columns: 1fr 16rem 1fr;
-        align-items: center;
+        justify-content: space-between;
     }
 
     ul {
         width: 28rem;
         max-width: 100%;
         justify-content: space-between !important;
+
+        .newPost {
+            min-width: 8.4rem;
+        }
     }
 
     a {
@@ -278,6 +279,8 @@ nav {
 
 
 #createPostButton {
+    display: block;
+    width: 100%;
     font-weight: bold;
     background-color: $mainColor;
     color: $fontLight;
@@ -317,27 +320,212 @@ nav {
     }
 } */
 
-#searchForm{
-    #autoComplete{
-        font-size: $mainFontSize;
-        height: 2rem;
-        max-width: 100%;
-        border-color: $mainColor;
-        color: $fontDark !important;
-        caret-color: $fontDark !important;
-        &:focus, &:hover{
-            height: 2rem;
-            padding: 0 1rem 0 2rem;
-            background-size: 1.4rem;
-            background-position: left 0.4rem top 0.3rem;
-            &::placeholder{
-                color: $fontDark !important;
-                opacity: 0.8;
-            }
-        }
-    }
+#searchForm {
+    width: 17rem;
+    max-width: 100%;
+    display: block;
 
 }
+
+#autoComplete_wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#autoComplete {
+    padding: 0 1rem 0 2rem;
+    display: block;
+    margin: 0 auto;
+    font-size: $mainFontSize;
+    height: 2rem;
+    max-width: 100%;
+    border-color: $mainColor;
+    color: $fontDark !important;
+    caret-color: $fontDark !important;
+    background-image: url("../icon/magnifier.svg");
+    background-position: left 0.4rem top 0.4rem;
+    width: 16.5rem;
+    position: relative;
+    font-size: 1.2rem;
+    outline: none;
+    border-radius: 50rem;
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    background-origin: border-box;
+    transition: all 0.4s ease;
+    text-overflow: ellipsis;
+}
+
+#autoComplete::placeholder {
+    color: $fontDark;
+    transition: all 0.3s ease;
+}
+
+#autoComplete:hover::placeholder {
+    transition: all 0.3s ease;
+    -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+#autoComplete:focus::placeholder {
+    opacity: 0.8;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#autoComplete::selection {
+    color: transparent;
+}
+
+#autoComplete:focus::selection {
+    color: #fff;
+    /* background-color: rgba(255, 122, 122, 1); */
+}
+
+#autoComplete:hover {
+    height: 2rem;
+    background-size: 1.4rem;
+    background-position: left 0.4rem top 0.3rem;
+    transition: all 0.3s ease;
+}
+
+#autoComplete:focus {
+    height: 2rem;
+    background-size: 1.4rem;
+    background-position: left 0.4rem top 0.3rem;
+    transition: all 0.3s ease;
+    /* box-shadow: rgba(255, 122, 122, 0.1) 0px 0px 20px 5px; */
+}
+
+#autoComplete_list {
+    position: fixed;
+    z-index: 1000;
+    padding: 0;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 18rem;
+    transition: all 0.1s ease-in-out;
+    -webkit-transition: all -webkit-transform 0.1s ease;
+}
+
+.autoComplete_result {
+    margin: 0.15rem auto;
+    padding: 0.6rem;
+    max-width: 280px;
+    border: 0.05rem solid #e3e3e3;
+    list-style: none;
+    text-align: left;
+    font-size: 1.1rem;
+    color: rgb(123, 123, 123);
+    transition: all 0.1s ease-in-out;
+    background-color: #fff;
+}
+
+.autoComplete_result::selection {
+    color: rgba(#ffffff, 0);
+    background-color: rgba(#ffffff, 0);
+}
+
+.autoComplete_result:last-child {
+    border-radius: 0 0 1rem 1rem;
+}
+
+.autoComplete_result:hover {
+    cursor: pointer;
+    background-color: rgba(255, 248, 248, 0.9);
+    /* border-left: 2px solid rgba(255, 122, 122, 1);
+    border-right: 2px solid rgba(255, 122, 122, 1); */
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.autoComplete_result:focus {
+    outline: none;
+    background-color: rgba(255, 248, 248, 0.9);
+    /* border-left: 2px solid rgba(255, 122, 122, 1);
+    border-right: 2px solid rgba(255, 122, 122, 1); */
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.autoComplete_highlighted {
+    opacity: 1;
+    /* color: rgba(255, 122, 122, 1); */
+    font-weight: bold;
+}
+
+.autoComplete_highlighted::selection {
+    color: rgba(#ffffff, 0);
+    background-color: rgba(#ffffff, 0);
+}
+
+.autoComplete_selected {
+    cursor: pointer;
+    background-color: rgba(255, 248, 248, 0.9);
+    /* border-left: 2px solid rgba(255, 122, 122, 1);
+    border-right: 2px solid rgba(255, 122, 122, 1); */
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+/* @media only screen and (max-width: 600px) {
+    #autoComplete {
+        width: 5rem;
+    }
+
+    #autoComplete:focus {
+        width: 11rem;
+        background-size: 1.6rem;
+        background-position: left 1.1rem top 0.75rem;
+    }
+
+    .autoComplete_result:first-child {
+        border-radius: 1rem 1rem 0 0;
+    }
+
+    .autoComplete_result:last-child {
+        border-radius: 0 0 1rem 1rem;
+    }
+
+    .autoComplete_result:only-child {
+        border-radius: 1rem;
+    }
+} */
+
+/* @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #autoComplete {
+        border-width: 1px;
+    }
+
+    #autoComplete:hover {
+        border-width: 1px;
+    }
+
+    #autoComplete:focus {
+        border-width: 1px;
+    }
+} */
+
+/* @-moz-document url-prefix() {
+    #autoComplete {
+        border-width: 1px;
+        background-size: 1.2rem;
+        background-origin: border-box;
+        background-position: center;
+    }
+
+    #autoComplete:hover {
+        border-width: 1px;
+    }
+
+    #autoComplete:focus {
+        border-width: 1px;
+        background-position: left 1.1rem top 0.8rem;
+    }
+} */
+
 
 /* end nav */
 
@@ -428,18 +616,22 @@ h1 {
 
 #commentSection {
     padding: 4rem 0;
-    #commentFormText{
+
+    #commentFormText {
         width: 100%;
     }
-    h3{
+
+    h3 {
         margin: 0.4rem 0;
     }
-    .commentItem{
+
+    .commentItem {
         margin: 0.4rem 0;
         padding: 0.2rem 0.6rem;
         border-radius: $mainRoundness;
         background-color: $bgColorLight;
-        .commentBody{
+
+        .commentBody {
             min-height: 3rem;
 
         }
