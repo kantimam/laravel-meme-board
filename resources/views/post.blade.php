@@ -32,7 +32,7 @@
 
                         </div>
                     </div>
-                    <img src={{"/".$post->file}} alt="thumbnail">
+                    <img src={{Storage::url($post->file)}} alt="thumbnail">
                     @include('components.commentSection', ['comments'=>[1,2,3]])
                 </section>
                 <section id="postFeed" class="fancyShadow">
@@ -42,17 +42,17 @@
                     <div class="postPreviewList">
                         @forelse ($prevPosts as $item)
                         <a href={{"/post/".$item->id}}>
-                            <img src={{"/".$item->thumbnail}} alt="thumbnail">
+                            <img src={{Storage::url("thumbnails/".$item->thumbnail)}} alt="thumbnail">
                         </a>
                         @empty
                             <div class="postPreviewEmpty centerAll">NULL</div>
                         @endforelse
                             <a class="active"  href={{"/post/".$post->id}}>
-                                <img src={{"/".$post->thumbnail}} alt="thumbnail">
+                                <img src={{Storage::url("thumbnails/".$post->thumbnail)}} alt="thumbnail">
                             </a>    
                         @forelse ($nextPosts as $item)
                             <a href={{"/post/".$item->id}}>
-                                <img src={{"/".$item->thumbnail}} alt="thumbnail">
+                                <img src={{Storage::url("thumbnails/".$item->thumbnail)}} alt="thumbnail">
                             </a>
                         @empty
                             <div class="postPreviewEmpty centerAll">NULL</div>

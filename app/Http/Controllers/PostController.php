@@ -71,11 +71,11 @@ class PostController extends Controller
             $post=new Post;
             $name=request()->image->store('uploads', 'public');
             if($name){ 
-                $thumbnailPath='storage/thumbnails/thumbnail_'.request()->image->hashName();
-                $thumbnail=Image::make(request()->image)->fit(320,240)->encode('jpg')->save($thumbnailPath);
+                $thumbnailName='thumbnail_'.request()->image->hashName();
+                $thumbnail=Image::make(request()->image)->fit(320,240)->encode('jpg')->save('storage/thumbnails/'.$thumbnailName);
                 if($thumbnail){
-                    $post->file='storage/'.$name;
-                    $post->thumbnail=$thumbnailPath;
+                    $post->file=$name;
+                    $post->thumbnail=$thumbnailName;
                     if(request()->has('title')){
                         $post->title=request()->title;
                     }
@@ -298,6 +298,27 @@ class PostController extends Controller
 
     public function comment(Request $request){
         return $request;
+    }
+
+    public function searchNew(Request $request){
+        return $this->search($request, "created_at");
+    }
+
+    public function searchPopular(Request $request){
+        return $this->search($request, "rating");
+    }
+
+    static function search(Request $request, $orderBy){
+        $query=$request->get('q');
+        $posts=Post::where('title', 'LIKE', '%'.strtolower($query).'%')->orderByDesc($orderBy)->get();
+        
+        /* dd("hello world"); */
+        return view(
+            'home', 
+            [
+            'posts'=>$posts
+            ]
+        );
     }
     
 }

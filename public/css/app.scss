@@ -253,7 +253,7 @@ nav {
         justify-content: space-between;
     }
 
-    ul {
+    .postNav {
         width: 28rem;
         max-width: 100%;
         justify-content: space-between !important;
@@ -323,21 +323,21 @@ nav {
 #searchForm {
     width: 17rem;
     max-width: 100%;
-    display: block;
-
-}
-
-#autoComplete_wrapper {
     position: relative;
     display: inline-block;
+    height: 2rem;
+    z-index: 9;
 }
 
+
+
 #autoComplete {
+    position: absolute;
     padding: 0 1rem 0 2rem;
-    display: block;
+    /* display: block; */
     margin: 0 auto;
     font-size: $mainFontSize;
-    height: 2rem;
+    height: 100%;
     max-width: 100%;
     border-color: $mainColor;
     color: $fontDark !important;
@@ -372,14 +372,14 @@ nav {
     transition: all 0.3s ease;
 }
 
-#autoComplete::selection {
+/* #autoComplete::selection {
     color: transparent;
 }
 
 #autoComplete:focus::selection {
     color: #fff;
-    /* background-color: rgba(255, 122, 122, 1); */
-}
+    background-color: rgba(255, 122, 122, 1);
+} */
 
 #autoComplete:hover {
     height: 2rem;
@@ -405,9 +405,8 @@ nav {
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 18rem;
+    width: 16.5rem;
     transition: all 0.1s ease-in-out;
-    -webkit-transition: all -webkit-transform 0.1s ease;
 }
 
 .autoComplete_result {

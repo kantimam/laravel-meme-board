@@ -1,6 +1,6 @@
 <nav {{-- class="mainColor" --}}>
     <div class="inner">
-        <ul class="centerAll">
+        <ul class="centerAll postNav">
             <li>
                 <a id="navLogo"  href="/">
                         {{ config('app.name', 'Munki') }}

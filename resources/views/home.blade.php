@@ -9,7 +9,7 @@
             <div class="thumbnailGrid">
                 @forelse ($posts as $post)
                     <a href={{"/post/".$post->id}}>
-                        <img src={{$post->thumbnail}} alt="thumbnail">
+                        <img src={{Storage::url('thumbnails/'.$post->thumbnail)}} alt="thumbnail">
                     </a>
                 @empty
                     <h3 class="centerText">NOTHING FOUND</h3>    

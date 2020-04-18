@@ -280,7 +280,7 @@ nav .inner {
           justify-content: space-between;
 }
 
-nav ul {
+nav .postNav {
   width: 28rem;
   max-width: 100%;
   -webkit-box-pack: justify !important;
@@ -288,7 +288,7 @@ nav ul {
           justify-content: space-between !important;
 }
 
-nav ul .newPost {
+nav .postNav .newPost {
   min-width: 8.4rem;
 }
 
@@ -355,20 +355,19 @@ nav a.active {
 #searchForm {
   width: 17rem;
   max-width: 100%;
-  display: block;
-}
-
-#autoComplete_wrapper {
   position: relative;
   display: inline-block;
+  height: 2rem;
+  z-index: 9;
 }
 
 #autoComplete {
+  position: absolute;
   padding: 0 1rem 0 2rem;
-  display: block;
+  /* display: block; */
   margin: 0 auto;
   font-size: 1.2rem;
-  height: 2rem;
+  height: 100%;
   max-width: 100%;
   border-color: #9147ff;
   color: black !important;
@@ -464,24 +463,14 @@ nav a.active {
   transition: all 0.3s ease;
 }
 
-#autoComplete::-moz-selection {
-  color: transparent;
-}
-
-#autoComplete::selection {
-  color: transparent;
-}
-
-#autoComplete:focus::-moz-selection {
-  color: #fff;
-  /* background-color: rgba(255, 122, 122, 1); */
+/* #autoComplete::selection {
+    color: transparent;
 }
 
 #autoComplete:focus::selection {
-  color: #fff;
-  /* background-color: rgba(255, 122, 122, 1); */
-}
-
+    color: #fff;
+    background-color: rgba(255, 122, 122, 1);
+} */
 #autoComplete:hover {
   height: 2rem;
   background-size: 1.4rem;
@@ -508,10 +497,9 @@ nav a.active {
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
-  width: 18rem;
+  width: 16.5rem;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
-  -webkit-transition: all -webkit-transform 0.1s ease;
 }
 
 .autoComplete_result {
