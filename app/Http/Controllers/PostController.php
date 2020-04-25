@@ -83,11 +83,25 @@ class PostController extends Controller
                     if($userId){
                         $post->user_id=$userId;
                     }
-                    $post->save();
-                    return view('uploadSucces');
+                    /* $post->save();
+                    return view('uploadSucces'); */
                 } /* handle thumbnail fail */
                 
             } /* handle image  fail */
+            $post->save();
+
+            /* handle tags */
+            $tags=request()->tags;
+            if($tags){
+                $tagsArr=explode(",", $tags);
+                $tagsOut=[];
+                foreach($tagsArr as $tag){
+                    
+                    $tagsOut[]=(trim($tag));
+                }
+                dd($tagsOut);
+            }
+            return view('uploadSucces');
         }
         return "image is required";
 

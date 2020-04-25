@@ -171,6 +171,34 @@ div {
   width: 100%;
 }
 
+.textInputWrapper input::-webkit-input-placeholder {
+  opacity: 0;
+  display: none;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.textInputWrapper input:-ms-input-placeholder {
+  opacity: 0;
+  display: none;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.textInputWrapper input::-ms-input-placeholder {
+  opacity: 0;
+  display: none;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.textInputWrapper input::placeholder {
+  opacity: 0;
+  display: none;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
 .textInputWrapper label {
   cursor: text;
   display: -webkit-box;
@@ -202,6 +230,26 @@ div {
   background-image: linear-gradient(#e2e2e2 60%, transparent 40%);
 }
 
+.textInputWrapper:focus-within input::-webkit-input-placeholder {
+  opacity: 1;
+  display: unset;
+}
+
+.textInputWrapper:focus-within input:-ms-input-placeholder {
+  opacity: 1;
+  display: unset;
+}
+
+.textInputWrapper:focus-within input::-ms-input-placeholder {
+  opacity: 1;
+  display: unset;
+}
+
+.textInputWrapper:focus-within input::placeholder {
+  opacity: 1;
+  display: unset;
+}
+
 .textInputWrapper label.inputFilled {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -212,6 +260,26 @@ div {
   background-color: unset !important;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #e2e2e2), color-stop(40%, transparent));
   background-image: linear-gradient(#e2e2e2 60%, transparent 40%);
+}
+
+.textInputWrapper label.inputFilled input::-webkit-input-placeholder {
+  opacity: 1;
+  display: unset;
+}
+
+.textInputWrapper label.inputFilled input:-ms-input-placeholder {
+  opacity: 1;
+  display: unset;
+}
+
+.textInputWrapper label.inputFilled input::-ms-input-placeholder {
+  opacity: 1;
+  display: unset;
+}
+
+.textInputWrapper label.inputFilled input::placeholder {
+  opacity: 1;
+  display: unset;
 }
 
 .checkInputWrapper {
@@ -869,6 +937,10 @@ h1 {
 #uploadForm .textInputWrapper {
   margin: 1.4rem auto 1.2rem auto;
   width: 94%;
+}
+
+#uploadForm .tagsInputWrapper.inputFilled {
+  display: none;
 }
 
 #uploadInfo {

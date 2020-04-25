@@ -30,7 +30,11 @@
                 <label for="postTitle">{{ __('Post Title') }}</label>
                 <input class="textInput" id="postTitle" type="text" name="title" autofocus>
             </div>
-            <input placeholder="add a few tags seperated by ," class="textInput" type="text" name="tags">
+
+            <div class="textInputWrapper tagsInputWrapper">
+                <label for="postTags">{{ __('Post Tags') }}</label>
+                <input id="postTags" placeholder="add a few tags seperated by ," class="textInput tagsInput" type="text" name="tags">
+            </div>
 
             <input class="mainSubmit mainColor" type="submit">
             
